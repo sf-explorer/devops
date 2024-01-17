@@ -1,0 +1,31 @@
+{
+  "version": "0.0.1",
+  "name": "@sf-explorer/devops",
+  "description": "Devops rules",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sf-explorer/devops.git"
+  },
+  "keywords": [
+    "soql",
+    "salesforce",
+    "devops"
+  ],
+  "author": "ndespres@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sf-explorer/devops/issues"
+  },
+  "homepage": "https://github.com/sf-explorer/devops#readme",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+   
+  },
+  "devDependencies": {
+    "@polycuber/script.cli": "^1.0.5"
+  }
+}
