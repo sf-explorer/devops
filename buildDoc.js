@@ -19,6 +19,10 @@ ${rule.goodExample}  ` : ''
     return `### ${rule.message}
 ${regex}Field: \`${rule.field}\`
 ${goodExample}
+### Config to use
+\`\`\`json
+${JSON.stringify(rule, null, 2)}
+\`\`\`
 `
 }
 
