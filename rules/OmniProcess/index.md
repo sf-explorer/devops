@@ -15,3 +15,11 @@ Field: `Name`
   "message": "OmniProcess must have less than 100 elements"
 }
 ```
+
+### SOQL Generated
+```sql
+Select Name, (select id from OmniProcessElements)
+    from OmniProcess
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  
+       order by LastModifiedDate desc limit 200
+```

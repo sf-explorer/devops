@@ -14,6 +14,14 @@ Field: `Description`
 }
 ```
 
+### SOQL Generated
+```sql
+Select Description, QualifiedApiName
+    from EntityDefinition
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  and QualifiedApiName like '%__c' and IsCustomizable = true 
+       order by LastModifiedDate desc limit 200
+```
+
 ### A custom object Name must be PascalCase
 regex: `^[A-Z][A-Za-z]*$`  
 Field: `qualifiedApiName`
@@ -30,6 +38,14 @@ InsurancePolicy
   "goodExample": "InsurancePolicy",
   "badExample": "Insurance_Policy"
 }
+```
+
+### SOQL Generated
+```sql
+Select qualifiedApiName
+    from EntityDefinition
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  and QualifiedApiName like '%__c' and IsCustomizable = true 
+       order by LastModifiedDate desc limit 200
 ```
 
 ### Less than 100 custom fields
@@ -50,6 +66,14 @@ Field: `qualifiedApiName`
 }
 ```
 
+### SOQL Generated
+```sql
+Select qualifiedApiName, (select QualifiedApiName from Fields where QualifiedApiName like '%__c')
+    from EntityDefinition
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  and QualifiedApiName like '%__c' and IsCustomizable = true 
+       order by LastModifiedDate desc limit 200
+```
+
 ### Maximum one custom trigger
 Field: `qualifiedApiName`
 
@@ -67,4 +91,12 @@ Field: `qualifiedApiName`
   "lessThan": 2,
   "message": "Maximum one custom trigger"
 }
+```
+
+### SOQL Generated
+```sql
+Select qualifiedApiName, (select Name from ApexTriggers where NamespacePrefix = null limit 10 )
+    from EntityDefinition
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  and QualifiedApiName like '%__c' and IsCustomizable = true 
+       order by LastModifiedDate desc limit 200
 ```

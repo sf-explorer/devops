@@ -38,7 +38,6 @@ import { LightningElement, api } from 'lwc';
  * @param contract string 
  */
 export default class socle360EquipementDetailContrat extends LightningElement {
-
     @api
     contract
 }
@@ -53,24 +52,10 @@ const ApexExample = `
  * @date 25/04/2023
 **/
 public with sharing class BoatDataService {
-
     public static final String LENGTH_TYPE = 'Length'; 
-    public static final String PRICE_TYPE = 'Price'; 
-    public static final String TYPE_TYPE = 'Type'; 
 
     @AuraEnabled(cacheable=true)
     public static List<Boat__c> getBoats(String boatTypeId) {
-        // Without an explicit boatTypeId, the full list is desired
-        String query = 'SELECT '
-                     + 'Name, Description__c, Geolocation__Latitude__s, '
-                     + 'Geolocation__Longitude__s, Picture__c, Contact__r.Name, '
-                     + 'BoatType__c, BoatType__r.Name, Length__c, Price__c '
-                     + 'FROM Boat__c';
-        if (String.isNotBlank(boatTypeId)) {
-            query += ' WHERE BoatType__c = :boatTypeId';
-        }
-        query += ' WITH SECURITY_ENFORCED ';
-        return Database.query(query);
     }
 }
 \`\`\`
@@ -220,6 +205,7 @@ Autolaunched Flow:
         computedField: "author",
         when: "ManageableState = 'unmanaged' and FilePath like '%js'",
         nameField: "FilePath",
+        goodExample: JSDocExample,
         tooling: true,
         message: "An LWC must have an author",
     },
@@ -229,6 +215,7 @@ Autolaunched Flow:
         computedField: "description",
         when: "ManageableState = 'unmanaged' and FilePath like '%js'",
         nameField: "FilePath",
+        goodExample: JSDocExample,
         tooling: true,
         message: "An LWC must have a description",
     },

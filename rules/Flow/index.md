@@ -12,6 +12,14 @@ Field: `Description`
 }
 ```
 
+### SOQL Generated
+```sql
+Select Description
+    from Flow
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  
+       order by LastModifiedDate desc limit 200
+```
+
 ### Flow Label must be Short Yet Meaningful
 Field: `MasterLabel`
 #### Example
@@ -33,4 +41,12 @@ Autolaunched Flow:
   "badExample": "Send reminder – Not enough information; principal words not capitalized",
   "goodExample": "Screen Flow:\n-Reschedule Order Delivery\n\nAutolaunched Flow:\n- Users or Apps: Add Default Opportunity Team Members\n- Flow Trigger: Case Before Handler\n- Scheduled: Remind Opportunity Owners"
 }
+```
+
+### SOQL Generated
+```sql
+Select MasterLabel
+    from Flow
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  
+       order by LastModifiedDate desc limit 200
 ```

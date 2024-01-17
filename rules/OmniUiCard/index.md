@@ -11,3 +11,11 @@ Field: `Description`
   "message": "Flexcards must have a description"
 }
 ```
+
+### SOQL Generated
+```sql
+Select Description, Name
+    from OmniUiCard
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  
+       order by LastModifiedDate desc limit 200
+```

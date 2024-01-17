@@ -1,4 +1,5 @@
 const rules = require('./defaultRules')
+const {soqlFromRule} = require('./index.js')
 const { file } = require("@polycuber/script.cli")
 
 var indexContent = ''
@@ -22,6 +23,11 @@ ${goodExample}
 ### Config to use
 \`\`\`json
 ${JSON.stringify(rule, null, 2)}
+\`\`\`
+
+### SOQL Generated
+\`\`\`sql
+${soqlFromRule(rule, '2024-01-01')}
 \`\`\`
 `
 }

@@ -17,6 +17,14 @@ PhoneNumber
 }
 ```
 
+### SOQL Generated
+```sql
+Select DeveloperName
+    from CustomField
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  
+       order by LastModifiedDate desc limit 200
+```
+
 ### Custom Fields must have a Description.
 Field: `Description`
 
@@ -30,4 +38,12 @@ Field: `Description`
   "message": "Custom Fields must have a Description.",
   "additionalMessage": "If you lack imagination, use SF Explorer ChatGPT native integration to generate it!"
 }
+```
+
+### SOQL Generated
+```sql
+Select Description, DeveloperName
+    from CustomField
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  
+       order by LastModifiedDate desc limit 200
 ```

@@ -13,6 +13,14 @@ Field: `Description`
 }
 ```
 
+### SOQL Generated
+```sql
+Select Description, Name
+    from PermissionSet
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  and IsOwnedByProfile = false and NamespacePrefix = null 
+       order by LastModifiedDate desc limit 200
+```
+
 ### Name is required
 Field: `Name`
 #### Example
@@ -52,4 +60,12 @@ Start with APP:
   "message": "Name is required",
   "goodExample": "### For Object/Field pern sets,\nStart with the Object Name, and with the CRUD access provided, and anything special goes in the middle. Like this:\n\n* Account - (R/C/E)\n* Case - (R)\n* Case - Delete Access - No Fields - (R/C/E/D)\n* Contact - General Access - (R/E)\n* Contact - Sensitive Fields Only - (R)\n\n### For System Permissions\nStart each Perm Set with SYS so that their grouped together:\n* SYS - Reports\n* SYS - Dashboards\n* SYS - View Setup\n\n### For App access\nStart with APP:\n* APP - Sales App\n* APP - Service App\n\n### For Tabs:\n* TAB - Accounts Tab\n* TAB - Tasks Tab\n\n### For Apex Class access:\n* APEX - Account LWC Controller\n* APEX - Case Invocable Actions"
 }
+```
+
+### SOQL Generated
+```sql
+Select Name
+    from PermissionSet
+       where  LastModifiedDate > 2024-01-01T00:00:00Z  and IsOwnedByProfile = false and NamespacePrefix = null 
+       order by LastModifiedDate desc limit 200
 ```
