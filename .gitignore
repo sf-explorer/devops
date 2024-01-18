@@ -1,3 +1,4 @@
 node_modules
 example/.env
 rules/index.md
+cli/.env
