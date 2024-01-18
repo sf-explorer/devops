@@ -71,7 +71,8 @@ const rules = [
     },
     {
         sObject: "EntityDefinition",
-        field: "qualifiedApiName",
+        field: "QualifiedApiName",
+        computedField: "qualifiedApiName",
         when: "QualifiedApiName like '%__c' and IsCustomizable = true",
         regex: "^[A-Z][A-Za-z]*$",
         message: "A custom object Name must be PascalCase",
@@ -89,7 +90,7 @@ const rules = [
     },
     {
         sObject: "EntityDefinition",
-        field: "qualifiedApiName",
+        field: "QualifiedApiName",
         when: "QualifiedApiName like '%__c' and IsCustomizable = true",
         relatedFields: ["(select Name from ApexTriggers where NamespacePrefix = null limit 10 )"],
         computedField: "ApexTriggers.totalSize",

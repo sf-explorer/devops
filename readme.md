@@ -2,7 +2,23 @@
 
 A set of [declarative rules](./defaultRules.js) allowing to perform simple checks on your orgs with SF Explorer Engine
 
-## Examples
+## Pipeline integration
+Create a file named `.env` with the following content:
+```
+USERNAME=XXX
+PASSWORD=XXX
+LOGINURL=https://login.salesforce.com
+DATE=2023-12-01
+```
+
+Run the command:  
+```cmd
+npx @sf-explorer/devops.cli
+```
+The command will generate an output file name `testReport.xml` similar to the one you can find [here](./cli/test-report.xml).
+
+
+## Rules Examples
 ### EntityDefinition
 [A custom object Description is required](./rules/EntityDefinition/index.md)  
 [A custom object Name must be PascalCase](./rules/EntityDefinition/index.md)  

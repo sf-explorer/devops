@@ -1,0 +1,18 @@
+{
+  "name": "@sf-explorer/devops.cli",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "ndespres@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@sf-explorer/devops": "0.0.3",
+    "dotenv": "^16.0.3",
+    "jsforce": "^1.11.0",
+    "junit-report-builder": "^3.1.0"
+  }
+}

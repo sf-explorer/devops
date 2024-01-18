@@ -32,17 +32,17 @@ ${soqlFromRule(rule, '2024-01-01')}
 `
 }
 
-Object.keys(rulesByObject).forEach(key => {
-    const rules = rulesByObject[key]
+Object.keys(rulesByObject).forEach(objectName => {
+    const rules = rulesByObject[objectName]
 
 
-    const rulesIndexContent = rules.map(rule => `[${rule.message}](./rules/${key}/index.md)  `).join('\n')
-    indexContent = indexContent + `### ${key}
+    const rulesIndexContent = rules.map(rule => `[${rule.message}](./rules/${objectName}/index.md)  `).join('\n')
+    indexContent = indexContent + `### ${objectName}
 ${rulesIndexContent}
 
 `
     const content = rules.map(ruleDetail).join('\n')
-    file.write.text(`./rules/${key}/index.md`, `# ${key}
+    file.write.text(`./rules/${objectName}/index.md`, `# ${objectName}
 ${content}`)
 })
 file.write.text('./rules/index.md', indexContent)

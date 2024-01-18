@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Check rules for EntityDefinition" tests="16" failures="16" errors="0" skipped="0">
+    <testcase classname="EntityDefinition.Field_Trip__Field_Analytic_Config__c" name="A custom object Description is required">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Object_Analysis__c" name="A custom object Description is required">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Field_Analysis__c" name="A custom object Description is required">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Logistics__c" name="A custom object Description is required">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Field_Analytic_Config__c" name="Maximum one custom trigger">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Object_Analysis__c" name="Maximum one custom trigger">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Field_Analysis__c" name="Maximum one custom trigger">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Logistics__c" name="Maximum one custom trigger">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Field_Analytic_Config__c" name="A custom object Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Object_Analysis__c" name="A custom object Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Field_Analysis__c" name="A custom object Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.Field_Trip__Logistics__c" name="A custom object Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.undefined" name="Less than 100 custom fields">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.undefined" name="Less than 100 custom fields">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.undefined" name="Less than 100 custom fields">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="EntityDefinition.undefined" name="Less than 100 custom fields">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="Check rules for CustomField" tests="66" failures="48" errors="0" skipped="0">
+    <testcase classname="CustomField.test" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Type" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Value" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Value" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Price" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Populated_On_Percent" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Fields" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Health_Score" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Last_Batch_Id" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Object_Name" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.isCustom" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Tally" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Records" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Record_Types" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Object_Label" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Last_Analyzed" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Filter" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.isRequired" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.isCustom" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Type" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Total_Tally" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Populated_On" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Label" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Field_Name" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Field_Weight" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Object_Name" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Batch_Size" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Object_Analysis" name="A CustomField API Name must be PascalCase">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.City" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Status" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Tags" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Important" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.NumberofLocations" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.test" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Type" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Value" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Value" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Price" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Populated_On_Percent" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Fields" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Health_Score" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Last_Batch_Id" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Object_Name" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.isCustom" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Tally" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Records" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Record_Types" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Object_Label" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Last_Analyzed" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Filter" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.isRequired" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.isCustom" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Type" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Total_Tally" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Populated_On" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Label" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Field_Name" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Field_Weight" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Object_Name" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Batch_Size" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Object_Analysis" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.City" name="Custom Fields must have a Description."/>
+    <testcase classname="CustomField.Status" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.Tags" name="Custom Fields must have a Description."/>
+    <testcase classname="CustomField.Important" name="Custom Fields must have a Description.">
+      <failure message="Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.NumberofLocations" name="Custom Fields must have a Description."/>
+  </testsuite>
+  <testsuite name="Check rules for Flow" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for PermissionSet" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for ApexClass" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for LightningComponentResource" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for OmniUiCard" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for OmniProcess" tests="0" failures="0" errors="0" skipped="0"/>
+</testsuites>
