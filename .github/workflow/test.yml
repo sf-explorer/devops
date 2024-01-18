@@ -1,5 +1,7 @@
 name: Run 
 
+on: workflow_dispatch
+
 jobs:
   deploy:
     name: Check rules
