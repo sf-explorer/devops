@@ -1,5 +1,5 @@
 # EntityDefinition
-### A custom object Description is required
+## A custom object Description is required
 Field: `Description`
 
 ### Config to use
@@ -16,22 +16,23 @@ Field: `Description`
 
 ### SOQL Generated
 ```sql
-Select Description, QualifiedApiName
+Select Description, QualifiedApiName, LastModifiedBy.Name
     from EntityDefinition
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and QualifiedApiName like '%__c' and IsCustomizable = true 
        order by LastModifiedDate desc limit 200
 ```
 
-### A custom object Name must be PascalCase
-regex: `^[A-Z][A-Za-z]*$`  
+## A custom object Name must be PascalCase
 Field: `qualifiedApiName`
+Regex: `^[A-Z][A-Za-z]*$`  
 #### Example
 InsurancePolicy  
 ### Config to use
 ```json
 {
   "sObject": "EntityDefinition",
-  "field": "qualifiedApiName",
+  "field": "QualifiedApiName",
+  "computedField": "qualifiedApiName",
   "when": "QualifiedApiName like '%__c' and IsCustomizable = true",
   "regex": "^[A-Z][A-Za-z]*$",
   "message": "A custom object Name must be PascalCase",
@@ -42,14 +43,14 @@ InsurancePolicy
 
 ### SOQL Generated
 ```sql
-Select qualifiedApiName
+Select QualifiedApiName, LastModifiedBy.Name
     from EntityDefinition
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and QualifiedApiName like '%__c' and IsCustomizable = true 
        order by LastModifiedDate desc limit 200
 ```
 
-### Less than 100 custom fields
-Field: `qualifiedApiName`
+## Less than 100 custom fields
+Field: `Fields.totalSize`
 
 ### Config to use
 ```json
@@ -68,20 +69,20 @@ Field: `qualifiedApiName`
 
 ### SOQL Generated
 ```sql
-Select qualifiedApiName, (select QualifiedApiName from Fields where QualifiedApiName like '%__c')
+Select qualifiedApiName, (select QualifiedApiName from Fields where QualifiedApiName like '%__c'), LastModifiedBy.Name
     from EntityDefinition
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and QualifiedApiName like '%__c' and IsCustomizable = true 
        order by LastModifiedDate desc limit 200
 ```
 
-### Maximum one custom trigger
-Field: `qualifiedApiName`
+## Maximum one custom trigger
+Field: `ApexTriggers.totalSize`
 
 ### Config to use
 ```json
 {
   "sObject": "EntityDefinition",
-  "field": "qualifiedApiName",
+  "field": "QualifiedApiName",
   "when": "QualifiedApiName like '%__c' and IsCustomizable = true",
   "relatedFields": [
     "(select Name from ApexTriggers where NamespacePrefix = null limit 10 )"
@@ -95,7 +96,7 @@ Field: `qualifiedApiName`
 
 ### SOQL Generated
 ```sql
-Select qualifiedApiName, (select Name from ApexTriggers where NamespacePrefix = null limit 10 )
+Select QualifiedApiName, (select Name from ApexTriggers where NamespacePrefix = null limit 10 ), LastModifiedBy.Name
     from EntityDefinition
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and QualifiedApiName like '%__c' and IsCustomizable = true 
        order by LastModifiedDate desc limit 200

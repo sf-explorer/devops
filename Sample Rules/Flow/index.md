@@ -1,5 +1,5 @@
 # Flow
-### Flow Description is required
+## Flow Description is required
 Field: `Description`
 
 ### Config to use
@@ -14,13 +14,13 @@ Field: `Description`
 
 ### SOQL Generated
 ```sql
-Select Description
+Select Description, LastModifiedBy.Name
     from Flow
        where  LastModifiedDate > 2024-01-01T00:00:00Z  
        order by LastModifiedDate desc limit 200
 ```
 
-### Flow Label must be Short Yet Meaningful
+## Flow Label must be Short Yet Meaningful
 Field: `MasterLabel`
 #### Example
 Screen Flow:
@@ -45,7 +45,7 @@ Autolaunched Flow:
 
 ### SOQL Generated
 ```sql
-Select MasterLabel
+Select MasterLabel, LastModifiedBy.Name
     from Flow
        where  LastModifiedDate > 2024-01-01T00:00:00Z  
        order by LastModifiedDate desc limit 200

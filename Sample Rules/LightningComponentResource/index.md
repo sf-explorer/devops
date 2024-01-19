@@ -1,6 +1,6 @@
 # LightningComponentResource
-### An LWC must have an author
-Field: `Source`
+## An LWC must have an author
+Field: `author`
 #### Example
 
 Here is an example
@@ -35,14 +35,14 @@ export default class socle360EquipementDetailContrat extends LightningElement {
 
 ### SOQL Generated
 ```sql
-Select Source, FilePath
+Select Source, FilePath, LastModifiedBy.Name
     from LightningComponentResource
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and ManageableState = 'unmanaged' and FilePath like '%js' 
        order by LastModifiedDate desc limit 200
 ```
 
-### An LWC must have a description
-Field: `Source`
+## An LWC must have a description
+Field: `description`
 #### Example
 
 Here is an example
@@ -77,7 +77,7 @@ export default class socle360EquipementDetailContrat extends LightningElement {
 
 ### SOQL Generated
 ```sql
-Select Source, FilePath
+Select Source, FilePath, LastModifiedBy.Name
     from LightningComponentResource
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and ManageableState = 'unmanaged' and FilePath like '%js' 
        order by LastModifiedDate desc limit 200

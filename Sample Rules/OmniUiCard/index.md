@@ -1,5 +1,5 @@
 # OmniUiCard
-### Flexcards must have a description
+## Flexcards must have a description
 Field: `Description`
 
 ### Config to use
@@ -14,7 +14,7 @@ Field: `Description`
 
 ### SOQL Generated
 ```sql
-Select Description, Name
+Select Description, Name, LastModifiedBy.Name
     from OmniUiCard
        where  LastModifiedDate > 2024-01-01T00:00:00Z  
        order by LastModifiedDate desc limit 200

@@ -4,11 +4,11 @@ A set of [declarative rules](./defaultRules.js) allowing to perform simple check
 
 ## Pipeline integration
 Create a file named `.env` with the following content:
-```
+```bash
 USERNAME=XXX
-PASSWORD=XXX
-LOGINURL=https://login.salesforce.com
-DATE=2023-12-01
+PASSWORD=XXX # Password+SecurityToken
+LOGINURL=https://login.salesforce.com #or https://test.salesforce.com
+DATE=TODAY  #or 2024-01-01
 ```
 
 Run the command:  
@@ -20,36 +20,38 @@ The command will generate an output file name `testReport.xml` similar to the on
 
 ## Rules Examples
 ### EntityDefinition
-[A custom object Description is required](./rules/EntityDefinition/index.md)  
-[A custom object Name must be PascalCase](./rules/EntityDefinition/index.md)  
-[Less than 100 custom fields](./rules/EntityDefinition/index.md)  
-[Maximum one custom trigger](./rules/EntityDefinition/index.md)  
+[A custom object Description is required](./Sample%20Rules/EntityDefinition/index.md)  
+[A custom object Name must be PascalCase](./Sample%20Rules/EntityDefinition/index.md)  
+[Less than 100 custom fields](./Sample%20Rules/EntityDefinition/index.md)  
+[Maximum one custom trigger](./Sample%20Rules/EntityDefinition/index.md)  
 
 ### CustomField
-[A CustomField API Name must be PascalCase](./rules/CustomField/index.md)  
-[Custom Fields must have a Description](./rules/CustomField/index.md)  
+[A CustomField API Name must be PascalCase](./Sample%20Rules/CustomField/index.md)  
+[Custom Fields must have a Description.](./Sample%20Rules/CustomField/index.md)  
 
 ### Flow
-[Flow Description is required](./rules/Flow/index.md)  
-[Flow Label must be Short Yet Meaningful](./rules/Flow/index.md)  
+[Flow Description is required](./Sample%20Rules/Flow/index.md)  
+[Flow Label must be Short Yet Meaningful](./Sample%20Rules/Flow/index.md)  
 
 ### PermissionSet
-[Description is required](./rules/PermissionSet/index.md)  
-[Name is required](./rules/PermissionSet/index.md)  
+[Description is required](./Sample%20Rules/PermissionSet/index.md)  
+[Name is required](./Sample%20Rules/PermissionSet/index.md)  
 
 ### ApexClass
-[An Apex class name must be PascalCase](./rules/ApexClass/index.md)  
-[An ApexClass must have a Description](./rules/ApexClass/index.md)  
-[An ApexClass must have an author](./rules/ApexClass/index.md)  
-[Apex variables must be camelCase](./rules/ApexClass/index.md)  
-[Apex methods must be camelCase](./rules/ApexClass/index.md)  
+[An Apex class name must be PascalCase](./Sample%20Rules/ApexClass/index.md)  
+[An ApexClass must have a Description](./Sample%20Rules/ApexClass/index.md)  
+[An ApexClass must have an author](./Sample%20Rules/ApexClass/index.md)  
+[Apex variables must be camelCase](./Sample%20Rules/ApexClass/index.md)  
+[Apex methods must be camelCase](./Sample%20Rules/ApexClass/index.md)  
 
 ### LightningComponentResource
-[An LWC must have an author](./rules/LightningComponentResource/index.md)  
-[An LWC must have a description](./rules/LightningComponentResource/index.md)  
+[An LWC must have an author](./Sample%20Rules/LightningComponentResource/index.md)  
+[An LWC must have a description](./Sample%20Rules/LightningComponentResource/index.md)  
 
 ### OmniUiCard
-[Flexcards must have a description](./rules/OmniUiCard/index.md)  
+[Flexcards must have a description](./Sample%20Rules/OmniUiCard/index.md)  
 
 ### OmniProcess
-[OmniProcess must have less than 100 elements](./rules/OmniProcess/index.md)  
+[OmniProcess must have less than 100 elements](./Sample%20Rules/OmniProcess/index.md)  
+
+

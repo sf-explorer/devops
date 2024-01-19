@@ -1,5 +1,5 @@
 # PermissionSet
-### Description is required
+## Description is required
 Field: `Description`
 
 ### Config to use
@@ -15,13 +15,13 @@ Field: `Description`
 
 ### SOQL Generated
 ```sql
-Select Description, Name
+Select Description, Name, LastModifiedBy.Name
     from PermissionSet
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and IsOwnedByProfile = false and NamespacePrefix = null 
        order by LastModifiedDate desc limit 200
 ```
 
-### Name is required
+## Name is required
 Field: `Name`
 #### Example
 ### For Object/Field pern sets,
@@ -64,7 +64,7 @@ Start with APP:
 
 ### SOQL Generated
 ```sql
-Select Name
+Select Name, LastModifiedBy.Name
     from PermissionSet
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and IsOwnedByProfile = false and NamespacePrefix = null 
        order by LastModifiedDate desc limit 200

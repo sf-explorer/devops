@@ -13,6 +13,26 @@ function soqlFromRule(rule, date) {
     return query
 }
 
+function ruleDetail(rule) {
+    const regex = rule.regex? `Regex: \`${rule.regex}\`  
+`: ''
+    const goodExample = rule.goodExample ? `#### Example
+${rule.goodExample}  ` : ''
+    return `## ${rule.message}
+Field: \`${rule.computedField || rule.field}\`
+${regex}${goodExample}
+### Config to use
+\`\`\`json
+${JSON.stringify(rule, null, 2)}
+\`\`\`
+
+### SOQL Generated
+\`\`\`sql
+${soqlFromRule(rule, '2024-01-01')}
+\`\`\`
+`
+}
+
 
 function getRules(sobject) {
    
@@ -76,4 +96,5 @@ module.exports = {
     rules,
     soqlFromRule,
     checkBestPractices,
+    ruleDetail,
 }

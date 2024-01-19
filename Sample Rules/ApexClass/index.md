@@ -1,7 +1,7 @@
 # ApexClass
-### An Apex class name must be PascalCase
-regex: `^[A-Z][A-Za-z0-9]*$`  
+## An Apex class name must be PascalCase
 Field: `Name`
+Regex: `^[A-Z][A-Za-z0-9]*$`  
 #### Example
 CustomerAssessmentController  
 ### Config to use
@@ -18,14 +18,14 @@ CustomerAssessmentController
 
 ### SOQL Generated
 ```sql
-Select Name
+Select Name, LastModifiedBy.Name
     from ApexClass
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and NamespacePrefix = null 
        order by LastModifiedDate desc limit 200
 ```
 
-### An ApexClass must have a Description
-Field: `Body`
+## An ApexClass must have a Description
+Field: `description`
 #### Example
 
 ```js
@@ -58,14 +58,14 @@ public with sharing class BoatDataService {
 
 ### SOQL Generated
 ```sql
-Select Body, Name
+Select Body, Name, LastModifiedBy.Name
     from ApexClass
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and NamespacePrefix = null 
        order by LastModifiedDate desc limit 200
 ```
 
-### An ApexClass must have an author
-Field: `Body`
+## An ApexClass must have an author
+Field: `author`
 #### Example
 
 ```js
@@ -98,15 +98,15 @@ public with sharing class BoatDataService {
 
 ### SOQL Generated
 ```sql
-Select Body, Name
+Select Body, Name, LastModifiedBy.Name
     from ApexClass
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and NamespacePrefix = null 
        order by LastModifiedDate desc limit 200
 ```
 
-### Apex variables must be camelCase
-regex: `^[a-z][A-Za-z0-9]*$`  
-Field: `SymbolTable`
+## Apex variables must be camelCase
+Field: `SymbolTable.variables`
+Regex: `^[a-z][A-Za-z0-9]*$`  
 
 ### Config to use
 ```json
@@ -124,15 +124,15 @@ Field: `SymbolTable`
 
 ### SOQL Generated
 ```sql
-Select SymbolTable, Name
+Select SymbolTable, Name, LastModifiedBy.Name
     from ApexClass
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and NamespacePrefix = null 
        order by LastModifiedDate desc limit 200
 ```
 
-### Apex methods must be camelCase
-regex: `^[a-z][A-Za-z0-9]*$`  
-Field: `SymbolTable`
+## Apex methods must be camelCase
+Field: `SymbolTable.methods`
+Regex: `^[a-z][A-Za-z0-9]*$`  
 
 ### Config to use
 ```json
@@ -150,7 +150,7 @@ Field: `SymbolTable`
 
 ### SOQL Generated
 ```sql
-Select SymbolTable, Name
+Select SymbolTable, Name, LastModifiedBy.Name
     from ApexClass
        where  LastModifiedDate > 2024-01-01T00:00:00Z  and NamespacePrefix = null 
        order by LastModifiedDate desc limit 200

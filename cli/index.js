@@ -3,8 +3,8 @@
 // 3rd party dependencies
 const path = require('path'),
     jsforce = require('jsforce')
-
-var builder = require('junit-report-builder');
+const { exit } = require('process')
+var builder = require('junit-report-builder')
 
 const { rules, soqlFromRule, checkBestPractices } = require("@sf-explorer/devops")
 
@@ -37,7 +37,8 @@ function getRecordName(record, rule) {
 }
 
 async function computeRule(rule, suite) {
-    const soql = soqlFromRule(rule, process.env.DATE)
+    const date = process.env.DATE === 'TODAY' ? new Date().toISOString().slice(0, 10) : process.env.DATE
+    const soql = soqlFromRule(rule, date)
 
     const parent = rule.tooling ? conn.tooling : conn
     try {
@@ -49,22 +50,26 @@ async function computeRule(rule, suite) {
                 .name(rule.message)
             const recordErrors = checkBestPractices(record)
             if (recordErrors.length > 0) {
-                testCase.failure(record.LastModifiedBy?.Name || '')
+                testCase.failure('Changed done by ' + (record.LastModifiedBy?.Name || ''))
             }
             return { errors: recordErrors }
 
         }).filter(res => res.errors.length > 0)
 
         console.log(`${rule.sObject}.${rule.field}[${rule.message}] ${errors.length}/${res.records.length}`)
+        return errors.length
     } catch (e) {
         console.error(e)
+        return 0
     }
 }
 
-var fs = require('fs');
+
+
 async function main() {
-    const userinfo = await conn.login(process.env.USERNAME, process.env.PASSWORD)
+    await conn.login(process.env.USERNAME, process.env.PASSWORD)
     const promises = []
+
     Object.keys(rulesByObject).forEach(async (objectName) => {
         var suite = builder.testSuite().name('Check rules for ' + objectName);
         const rules = rulesByObject[objectName]
@@ -75,8 +80,13 @@ async function main() {
                 promises.push(computeRule(rule, suite))
             })
     })
-    await Promise.all(promises)
-    builder.writeTo('test-report.xml');
+
+    const res = await Promise.all(promises)
+    const result = res.reduce((prev, cur) => {
+        return prev + cur
+    }, 0)
+    builder.writeTo('test-report.xml')
+    exit(result > 0 ? 1 : 0)
 }
 
 
