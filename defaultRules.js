@@ -44,6 +44,14 @@ export default class socle360EquipementDetailContrat extends LightningElement {
 \`\`\`
 `
 
+const ApexGoodExample = `
+* ActivityTimeline_Controller
+* ActivityTimeline_Controller_Test
+* RetrieveInteractions_ServiceOut
+* RetrieveInteractions_ServiceOut_Mock
+* RetrieveInteractions_ServiceOut_Test
+`
+
 const ApexExample = `
 \`\`\`js
 /** 
@@ -67,22 +75,21 @@ const rules = [
         nameField: "QualifiedApiName",
         message: "A custom object Description is required",
         tooling: true,
-        when: "QualifiedApiName like '%__c' and IsCustomizable = true",
+        when: "PublisherId = '<local>'",
     },
     {
         sObject: "EntityDefinition",
         field: "QualifiedApiName",
-        computedField: "qualifiedApiName",
-        when: "QualifiedApiName like '%__c' and IsCustomizable = true",
-        regex: "^[A-Z][A-Za-z]*$",
+        computedField: "QualifiedApiName.api",
+        when: "PublisherId = '<local>'",
+        regex: "^[A-Z][A-Za-z0-9]*$",
         message: "A custom object Name must be PascalCase",
         goodExample: "InsurancePolicy",
         badExample: 'Insurance_Policy',
     },
     {
         sObject: "EntityDefinition",
-        field: "qualifiedApiName",
-        when: "QualifiedApiName like '%__c' and IsCustomizable = true",
+        field: "QualifiedApiName",
         relatedFields: ["(select QualifiedApiName from Fields where QualifiedApiName like '%__c')"],
         computedField: "Fields.totalSize",
         lessThan: 100,
@@ -91,9 +98,9 @@ const rules = [
     {
         sObject: "EntityDefinition",
         field: "QualifiedApiName",
-        when: "QualifiedApiName like '%__c' and IsCustomizable = true",
         relatedFields: ["(select Name from ApexTriggers where NamespacePrefix = null limit 10 )"],
         computedField: "ApexTriggers.totalSize",
+        when: "PublisherId = '<local>'",
         tooling: true,
         lessThan: 2,
         message: "Maximum one custom trigger"
@@ -102,6 +109,7 @@ const rules = [
         sObject: "CustomField",
         field: "DeveloperName",
         regex: "^[A-Z][A-Za-z0-9]*$",
+        when: "ManageableState = 'unmanaged'",
         message: "A CustomField API Name must be PascalCase",
         tooling: true,
         goodExample: "PhoneNumber",
@@ -110,6 +118,7 @@ const rules = [
     {
         sObject: "CustomField",
         nameField: "DeveloperName",
+        when: "ManageableState = 'unmanaged'",
         field: "Description",
         tooling: true,
         message: "Custom Fields must have a Description.",
@@ -158,14 +167,27 @@ Autolaunched Flow:
         sObject: "ApexClass",
         field: "Name",
         when: "NamespacePrefix = null",
-        regex: "^[A-Z][A-Za-z0-9]*$",
-        message: "An Apex class name must be PascalCase",
-        goodExample: 'CustomerAssessmentController',
+        regex: "^[A-Z][A-Za-z0-9_]*(_Controller|_ServiceIn|_ServiceOut|_Test|_Helper|_Interface|_Mock|_ServiceAPI|_Util|_Batchable|_Queuable|_Schedulable)$",
+        message: "An Apex class name must be PascalCase and use a correct Suffix",
+        goodExample: ApexGoodExample,
     },
     {
         sObject: "ApexClass",
         field: "Body",
-        computedField: "description",
+        computedField: "Body",
+        when: "NamespacePrefix = null",
+        nameField: "Name",
+        message: "An ApexClass must follow the best practices",
+        pmd: '',
+        goodExample: `* No DML in loop
+* Optimize SOQL with related lists
+* **No Hardcoded values**  
+`,
+    },
+    {
+        sObject: "ApexClass",
+        field: "Body",
+        computedField: "Body.description",
         when: "NamespacePrefix = null",
         nameField: "Name",
         message: "An ApexClass must have a Description",
@@ -174,7 +196,7 @@ Autolaunched Flow:
     {
         sObject: "ApexClass",
         field: "Body",
-        computedField: "author",
+        computedField: "Body.author",
         when: "NamespacePrefix = null",
         nameField: "Name",
         message: "An ApexClass must have an author",
@@ -203,7 +225,7 @@ Autolaunched Flow:
     {
         sObject: "LightningComponentResource",
         field: "Source",
-        computedField: "author",
+        computedField: "Source.author",
         when: "ManageableState = 'unmanaged' and FilePath like '%js'",
         nameField: "FilePath",
         goodExample: JSDocExample,
@@ -213,7 +235,7 @@ Autolaunched Flow:
     {
         sObject: "LightningComponentResource",
         field: "Source",
-        computedField: "description",
+        computedField: "Source.description",
         when: "ManageableState = 'unmanaged' and FilePath like '%js'",
         nameField: "FilePath",
         goodExample: JSDocExample,
@@ -228,12 +250,19 @@ Autolaunched Flow:
     },
     {
         sObject: "OmniProcess",
+        field: "Description",
+        nameField: "Name",
+        message: "Omniscripts must have a description",
+    },
+    {
+        sObject: "OmniProcess",
         field: "Name",
         relatedFields: ["(select id from OmniProcessElements)"],
         computedField: "OmniProcessElements.totalSize",
         lessThan: 100,
-        message: "OmniProcess must have less than 100 elements",
+        message: "Omniscripts must have less than 100 elements",
     },
+   
 ]
 
 module.exports = rules

@@ -1,5 +1,5 @@
 {
-  "version": "0.0.3",
+  "version": "0.0.6",
   "name": "@sf-explorer/devops",
   "description": "Devops rules",
   "repository": {
@@ -23,7 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-   
+    "comment-parser": "^1.4.1"
   },
   "devDependencies": {
     "@polycuber/script.cli": "^1.0.5"

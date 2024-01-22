@@ -1,4 +1,5 @@
 const rules = require('./defaultRules')
+const getValue = require('./lib/getValue')
 
 function soqlFromRule(rule, date) {
     const fromDate = date ? date : '2024-01-01'
@@ -14,14 +15,18 @@ function soqlFromRule(rule, date) {
 }
 
 function ruleDetail(rule) {
-    const regex = rule.regex? `Regex: \`${rule.regex}\`  
+    const regex = rule.regex ? `Regex: \`${rule.regex}\`    
 `: ''
     const goodExample = rule.goodExample ? `#### Example
 ${rule.goodExample}  ` : ''
     return `## ${rule.message}
-Field: \`${rule.computedField || rule.field}\`
+Field: \`${rule.computedField || rule.field}\`   
 ${regex}${goodExample}
-### Config to use
+
+`
+
+/**
+ * ### Configuration to use
 \`\`\`json
 ${JSON.stringify(rule, null, 2)}
 \`\`\`
@@ -30,63 +35,49 @@ ${JSON.stringify(rule, null, 2)}
 \`\`\`sql
 ${soqlFromRule(rule, '2024-01-01')}
 \`\`\`
-`
+ */
 }
 
 
 function getRules(sobject) {
-   
     return rules.filter(rule => rule.sObject === sobject.attributes?.type)
         .filter(rule => sobject[rule.field] !== undefined)
 }
 
 function hasBestPractices(sobject) {
-    const rules = getRules(sobject).filter(rule => sobject[rule.field] !== undefined)
+    const rules = getRules(sobject)
     return rules.length > 0
 }
 
-var dotGet = function (str, obj) {
-
-    return str.split('.').reduce(function (cur, i) {
-        if (!cur) return undefined
-        return cur[i];
-    }, obj)
+function passRule(sobject, rule) {
+    const data = getValue(sobject, rule)
+    if (rule.regex) {
+        const pattern = new RegExp(rule.regex)
+        if (Array.isArray(data)) {
+            const subErrors = data.filter(el => !pattern.test(el?.name || ''))
+            if (subErrors.length > 0) {
+                return false
+            }
+        } else {
+            return false
+        }
+    } else if (rule.lessThan ) {
+        if (typeof data === 'number') {
+            return data < rule.lessThan
+        }
+        return false
+    } else if (!data) {
+        return false
+    }
+    return true
 }
 
 function checkBestPractices(sobject) {
     const rules = getRules(sobject)
-    const res= []
+    const res = []
     rules.forEach(rule => {
-        let data
-        if (rule.computedField) {
-            data = dotGet(rule.computedField, sobject) || ''
-        } else {
-            data = sobject[rule.field] || ''
-        }
-
-        if (rule.regex) {
-            //console.log(data)
-            const pattern = new RegExp(rule.regex)
-            if (Array.isArray(data)) {
-                data.forEach(el => {
-                    if (!pattern.test(el.name)) {
-                        res.push({ name: rule.message + ' ' + el.name })
-                    }
-                })
-            } else {
-                if (!pattern.test(data)) {
-                    res.push({ name: rule.message })
-                }
-            }
-
-        } else if (rule.lessThan) {
-            if (data > rule.lessThan) {
-                res.push({ name: rule.message })
-            }
-        } else {
-            if (data === '') {
-                res.push({ name: rule.message })
-            }
+        if (!passRule(sobject, rule)) {
+            res.push({ name: rule.message })
         }
     })
     return res
@@ -94,6 +85,8 @@ function checkBestPractices(sobject) {
 
 module.exports = {
     rules,
+    passRule,
+    hasBestPractices,
     soqlFromRule,
     checkBestPractices,
     ruleDetail,

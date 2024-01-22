@@ -6,7 +6,7 @@ const path = require('path'),
 const { exit } = require('process')
 var builder = require('junit-report-builder')
 
-const { rules, soqlFromRule, checkBestPractices } = require("@sf-explorer/devops")
+const { rules, soqlFromRule, checkBestPractices, passRule } = require("@sf-explorer/devops")
 
 require('dotenv').config();
 const LOGIN_URL = process.env.LOGINURL || 'https://test.salesforce.com'
@@ -22,9 +22,10 @@ var conn = new jsforce.Connection({ loginUrl: LOGIN_URL, version })
 
 const rulesByObject = rules.reduce((prev, cur) => {
     if (!prev[cur.sObject]) {
-        prev[cur.sObject] = []
+        //prev[cur.sObject] = []
+        prev[cur.sObject] = builder.testSuite().name('Check rules for ' + cur.sObject);
     }
-    prev[cur.sObject].push(cur)
+    //prev[cur.sObject].push(cur)
     return prev
 }, {})
 
@@ -48,7 +49,7 @@ async function computeRule(rule, suite) {
             var testCase = suite.testCase()
                 .className(rule.sObject + '.' + getRecordName(record, rule))
                 .name(rule.message)
-            const recordErrors = checkBestPractices(record)
+            const recordErrors = passRule(record, rule) ? [] : [{}]
             if (recordErrors.length > 0) {
                 testCase.failure('Changed done by ' + (record.LastModifiedBy?.Name || ''))
             }
@@ -68,18 +69,19 @@ async function computeRule(rule, suite) {
 
 async function main() {
     await conn.login(process.env.USERNAME, process.env.PASSWORD)
-    const promises = []
+   
 
-    Object.keys(rulesByObject).forEach(async (objectName) => {
+   /* Object.keys(rulesByObject).forEach(async (objectName) => {
         var suite = builder.testSuite().name('Check rules for ' + objectName);
         const rules = rulesByObject[objectName]
 
-        rules
+    })*/
+
+    const promises = rules
             //.filter(rule => !rule.sObject.startsWith('Omni'))
-            .forEach(async (rule) => {
-                promises.push(computeRule(rule, suite))
+            .map( (rule) => {
+               return computeRule(rule, rulesByObject[rule.sObject])
             })
-    })
 
     const res = await Promise.all(promises)
     const result = res.reduce((prev, cur) => {
