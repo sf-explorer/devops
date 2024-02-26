@@ -65,7 +65,7 @@ function passRule(sobject, rule) {
         if (typeof data === 'number') {
             return data < rule.lessThan
         }
-        return false
+        return data === undefined || data === ''
     } else if (!data) {
         return false
     }
@@ -90,4 +90,5 @@ module.exports = {
     soqlFromRule,
     checkBestPractices,
     ruleDetail,
+    getValue,
 }

@@ -72,8 +72,10 @@ const rules = [
     {
         sObject: "EntityDefinition",
         field: "Description",
+        regex: "^.{20,}$",
         nameField: "QualifiedApiName",
         message: "A custom object Description is required",
+        goodExample: "More than 20 chars",
         tooling: true,
         when: "PublisherId = '<local>'",
     },
@@ -127,6 +129,8 @@ const rules = [
     {
         sObject: "Flow",
         field: "Description",
+        regex: "^.{20,}$",
+        goodExample: "More than 20 chars",
         tooling: true,
         message: "Flow Description is required"
     },
@@ -141,10 +145,10 @@ const rules = [
 - Flow Trigger: <Object Name> Before Handler
 - Scheduled: <Short Process Description>`,
         badExample: `Send reminder – Not enough information; principal words not capitalized`,
-        goodExample: `Screen Flow:
--Reschedule Order Delivery
+        goodExample: `Screen Flow:  
+- Reschedule Order Delivery
 
-Autolaunched Flow:
+Autolaunched Flow:  
 - Users or Apps: Add Default Opportunity Team Members
 - Flow Trigger: Case Before Handler
 - Scheduled: Remind Opportunity Owners`
@@ -262,6 +266,31 @@ Autolaunched Flow:
         lessThan: 100,
         message: "Omniscripts must have less than 100 elements",
     },
+    {
+        sObject: "OmniProcess",
+        field: "Type",
+        regex: "^[a-z][A-Za-z0-9]*$",
+        nameField: "Name",
+        message: "OmniProcess type should be camel case",
+    },
+    {
+        sObject: "OmniProcessElement",
+        nameField: "Name",
+        regex: "^.{20,}$",
+        field: "Description",
+        when: "(Type = 'Remote Action' or Type = 'DataRaptor Extract Action')",
+        message: "Remote action and DataRaptor Actions must have a description",
+        goodExample: "More than 20 chars",
+    },
+    {
+        sObject: "OmniDataTransform",
+        nameField: "Name",
+        field: "Description",
+        regex: "^.{20,}$",
+        message: "DataRaptors must have a description",
+        goodExample: "More than 20 chars",
+    },
+    
    
 ]
 

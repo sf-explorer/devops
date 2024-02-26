@@ -9,6 +9,7 @@ USERNAME=XXX
 PASSWORD=XXX # Password+SecurityToken
 LOGINURL=https://login.salesforce.com #or https://test.salesforce.com
 DATE=TODAY  #or 2024-01-01
+RULES=EntityDefinition,CustomField  #specify to only run rules on EntityDefinition and CustomField - remove param to check all rules
 ```
 
 Run the command:  

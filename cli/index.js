@@ -22,10 +22,8 @@ var conn = new jsforce.Connection({ loginUrl: LOGIN_URL, version })
 
 const rulesByObject = rules.reduce((prev, cur) => {
     if (!prev[cur.sObject]) {
-        //prev[cur.sObject] = []
         prev[cur.sObject] = builder.testSuite().name('Check rules for ' + cur.sObject);
     }
-    //prev[cur.sObject].push(cur)
     return prev
 }, {})
 
@@ -36,6 +34,7 @@ function getRecordName(record, rule) {
     return record[rule.field]
 
 }
+
 
 async function computeRule(rule, suite) {
     const date = process.env.DATE === 'TODAY' ? new Date().toISOString().slice(0, 10) : process.env.DATE
@@ -65,20 +64,12 @@ async function computeRule(rule, suite) {
     }
 }
 
-
-
 async function main() {
     await conn.login(process.env.USERNAME, process.env.PASSWORD)
+    const filters = (process.env.RULES || '').split(',')
    
-
-   /* Object.keys(rulesByObject).forEach(async (objectName) => {
-        var suite = builder.testSuite().name('Check rules for ' + objectName);
-        const rules = rulesByObject[objectName]
-
-    })*/
-
     const promises = rules
-            //.filter(rule => !rule.sObject.startsWith('Omni'))
+            .filter(rule => (filters.length === 1 && filters[0]==='') || filters.includes(rule.sObject))
             .map( (rule) => {
                return computeRule(rule, rulesByObject[rule.sObject])
             })
@@ -90,9 +81,5 @@ async function main() {
     builder.writeTo('test-report.xml')
     exit(result > 0 ? 1 : 0)
 }
-
-
-
-
 
 main()
