@@ -108,6 +108,16 @@ const rules = [
         message: "Maximum one custom trigger"
     },
     {
+        sObject: "EntityDefinition",
+        field: "QualifiedApiName",
+        relatedFields: ["(select Name from RecordTypes where NamespacePrefix = null limit 10 )"],
+        computedField: "RecordTypes.totalSize",
+        when: "PublisherId = '<local>'",
+        tooling: true,
+        lessThan: 4,
+        message: "Maximum 3 record types"
+    },
+    {
         sObject: "CustomField",
         field: "DeveloperName",
         regex: "^[A-Z][A-Za-z0-9]*$",
@@ -290,7 +300,15 @@ Autolaunched Flow:
         message: "DataRaptors must have a description",
         goodExample: "More than 20 chars",
     },
-    
+    {
+        sObject: "FieldPermissions",
+        nameField: "SobjectType",
+        field: "Field",
+        message: "No field level security on Profiles",
+        goodExample: "Use a permission set instead",
+        where: 'ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true)'
+    },
+
    
 ]
 

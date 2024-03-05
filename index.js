@@ -1,15 +1,23 @@
 const rules = require('./defaultRules')
 const getValue = require('./lib/getValue')
 
+function dateCriteria(sobject){
+    return sobject !== "FieldPermissions" ? "LastModifiedDate" : "SystemModstamp"
+}
+
+function lastUser(sobject){
+    return sobject !== "FieldPermissions" ? ", LastModifiedBy.Name" : ""
+}
+
 function soqlFromRule(rule, date) {
     const fromDate = date ? date : '2024-01-01'
-    const fromDateCriteria = "where  LastModifiedDate > " + fromDate + "T00:00:00Z"
+    const fromDateCriteria = `where ${dateCriteria(rule.sObject)} > ${fromDate}T00:00:00Z`
     const criteria = rule.when ? ` and ${rule.when}` : ''
     const query = `Select ${rule.field}${rule.relatedFields ?
-        (', ' + rule.relatedFields.join(', ')) : ''}${rule.nameField ? `, ${rule.nameField}` : ''}, LastModifiedBy.Name
+        (', ' + rule.relatedFields.join(', ')) : ''}${rule.nameField ? `, ${rule.nameField}` : ''} ${lastUser(rule.sObject)}
     from ${rule.sObject}
        ${fromDateCriteria} ${criteria} 
-       order by LastModifiedDate desc limit 200`
+       order by ${dateCriteria(rule.sObject)} desc limit 200`
 
     return query
 }
@@ -69,7 +77,7 @@ function passRule(sobject, rule) {
     } else if (!data) {
         return false
     }
-    return true
+    return false
 }
 
 function checkBestPractices(sobject) {
