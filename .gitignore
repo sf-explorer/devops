@@ -2,3 +2,6 @@ node_modules
 example/.env
 rules/index.md
 cli/.env
+devops/.sfdx/indexes/lwc/custom-components.json
+.sfdx
+sfdx/test-report.xml

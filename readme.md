@@ -19,6 +19,8 @@ npx @sf-explorer/devops.cli
 The command will generate an output file name `testReport.xml` similar to the one you can find [here](./cli/test-report.xml).
 
 
+If you don't provide a username, it will try to connect using `SFDX`
+
 ## Rules Examples
 ### EntityDefinition
 [A custom object Description is required](./Sample%20Rules/EntityDefinition/index.md)  

@@ -5,16 +5,13 @@ const path = require('path'),
     jsforce = require('jsforce')
 const { exit } = require('process')
 var builder = require('junit-report-builder')
+const { command } = require('@polycuber/script.cli')
 
 const { rules, soqlFromRule, checkBestPractices, passRule } = require("@sf-explorer/devops")
 
 require('dotenv').config();
 const LOGIN_URL = process.env.LOGINURL || 'https://test.salesforce.com'
 
-if (!(process.env.USERNAME)) {
-    console.error('Cannot start app: missing mandatory configuration. Check your .env file.');
-    process.exit(-1);
-}
 
 const version = '59.0'
 
@@ -65,20 +62,37 @@ async function computeRule(rule, suite) {
 }
 
 async function main() {
-    await conn.login(process.env.USERNAME, process.env.PASSWORD)
+    if (process.env.USERNAME) {
+        await conn.login(process.env.USERNAME, process.env.PASSWORD)
+    } else {
+        try {
+            const context = command.read.call('sfdx', ['force:org:display', '--json'], )
+            const data = JSON.parse(context)
+            conn = new jsforce.Connection({
+                instanceUrl : data.result.instanceUrl,
+                accessToken : data.result.accessToken,
+              })
+        } catch(e){
+            console.error(e)
+            exit(1)
+        }
+    }
     const filters = (process.env.RULES || '').split(',')
-   
+
     const promises = rules
-            .filter(rule => (filters.length === 1 && filters[0]==='') || filters.includes(rule.sObject))
-            .map( (rule) => {
-               return computeRule(rule, rulesByObject[rule.sObject])
-            })
+        .filter(rule => (filters.length === 1 && filters[0] === '') || filters.includes(rule.sObject))
+        .map((rule) => {
+            return computeRule(rule, rulesByObject[rule.sObject])
+        })
 
     const res = await Promise.all(promises)
     const result = res.reduce((prev, cur) => {
         return prev + cur
     }, 0)
     builder.writeTo('test-report.xml')
+    if (result > 0) {
+        console.error('Found', result, 'errors, see test-report.xml for details.')
+    }
     exit(result > 0 ? 1 : 0)
 }
 
