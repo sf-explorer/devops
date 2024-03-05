@@ -27,6 +27,7 @@ If you don't provide a username, it will try to connect using `SFDX`
 [A custom object Name must be PascalCase](./Sample%20Rules/EntityDefinition/index.md)  
 [Less than 100 custom fields](./Sample%20Rules/EntityDefinition/index.md)  
 [Maximum one custom trigger](./Sample%20Rules/EntityDefinition/index.md)  
+[Maximum 3 record types](./Sample%20Rules/EntityDefinition/index.md)  
 
 ### CustomField
 [A CustomField API Name must be PascalCase](./Sample%20Rules/CustomField/index.md)  
@@ -41,7 +42,8 @@ If you don't provide a username, it will try to connect using `SFDX`
 [Name is required](./Sample%20Rules/PermissionSet/index.md)  
 
 ### ApexClass
-[An Apex class name must be PascalCase](./Sample%20Rules/ApexClass/index.md)  
+[An Apex class name must be PascalCase and use a correct Suffix](./Sample%20Rules/ApexClass/index.md)  
+[An ApexClass must follow the best practices](./Sample%20Rules/ApexClass/index.md)  
 [An ApexClass must have a Description](./Sample%20Rules/ApexClass/index.md)  
 [An ApexClass must have an author](./Sample%20Rules/ApexClass/index.md)  
 [Apex variables must be camelCase](./Sample%20Rules/ApexClass/index.md)  
@@ -55,6 +57,16 @@ If you don't provide a username, it will try to connect using `SFDX`
 [Flexcards must have a description](./Sample%20Rules/OmniUiCard/index.md)  
 
 ### OmniProcess
-[OmniProcess must have less than 100 elements](./Sample%20Rules/OmniProcess/index.md)  
+[Omniscripts must have a description](./Sample%20Rules/OmniProcess/index.md)  
+[Omniscripts must have less than 100 elements](./Sample%20Rules/OmniProcess/index.md)  
+[OmniProcess type should be camel case](./Sample%20Rules/OmniProcess/index.md)  
 
+### OmniProcessElement
+[Remote action and DataRaptor Actions must have a description](./Sample%20Rules/OmniProcessElement/index.md)  
+
+### OmniDataTransform
+[DataRaptors must have a description](./Sample%20Rules/OmniDataTransform/index.md)  
+
+### FieldPermissions
+[No field level security on Profiles](./Sample%20Rules/FieldPermissions/index.md)  
 

@@ -18,7 +18,7 @@ Object.keys(rulesByObject).forEach(objectName => {
     const rules = rulesByObject[objectName]
 
 
-    const rulesIndexContent = rules.map(rule => `[${rule.message}](./Sample Rules/${objectName}/index.md)  `).join('\n')
+    const rulesIndexContent = rules.map(rule => `[${rule.message}](./Sample%20Rules/${objectName}/index.md)  `).join('\n')
     indexContent = indexContent + `### ${objectName}
 ${rulesIndexContent}
 
