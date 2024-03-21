@@ -82,9 +82,9 @@ const rules = [
     {
         sObject: "EntityDefinition",
         field: "QualifiedApiName",
-        computedField: "QualifiedApiName.api",
+        computedField: "QualifiedApiName",
         when: "PublisherId = '<local>'",
-        regex: "^[A-Z][A-Za-z0-9]*$",
+        regex: "^[A-Z][A-Za-z0-9]*(__c|__mdt|__ka|__kav)$",
         message: "A custom object Name must be PascalCase",
         goodExample: "InsurancePolicy",
         badExample: 'Insurance_Policy',
