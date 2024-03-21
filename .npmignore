@@ -1,2 +1,4 @@
 .github
 cli
+sfdx
+buildDoc.js

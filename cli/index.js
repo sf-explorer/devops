@@ -56,14 +56,14 @@ async function computeRule(rule, suite) {
         console.log(`${rule.sObject}.${rule.field}[${rule.message}] ${errors.length}/${res.records.length}`)
         return errors.length
     } catch (e) {
-        console.error(e)
+        console.error(e, soql)
         return 0
     }
 }
 
 async function main() {
-    if (process.env.USERNAME) {
-        await conn.login(process.env.USERNAME, process.env.PASSWORD)
+    if (process.env.PASSWORD) {
+        await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
     } else {
         try {
             const context = command.read.call('sfdx', ['force:org:display', '--json'], )

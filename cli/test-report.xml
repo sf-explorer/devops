@@ -1,256 +1,229 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Check rules for EntityDefinition" tests="200" failures="1" errors="0" skipped="0">
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityTrackingGroup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityUILayout__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityUITemplate__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityWebTrackingConfiguration__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityWebTrackingEventType__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VqMachineResource__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VqMachine__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VqResource__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityStateTransitionRule__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityStateTransition__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityState__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocitySystemLog__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityTrackingComponent__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityTrackingEntry__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityFunctionArgument__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityFunction__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityScheduledJob__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocitySearchWidgetActionsSetup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocitySearchWidgetSetup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityStateModelVersion__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityStateModel__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__UISection__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__UserAdServer__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__UserCalendar__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__UserNotification__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityAPIMetadata__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityAction__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityAttachment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityCard__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityContractServiceLog__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityDataPack__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityDocuSignBranding__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityDocuSignTemplate__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__VlocityErrorLogEntry__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__StatementLineItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Statement__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__StringTranslation__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__String__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Subscription__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__SyncDeltaObject__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__SyncDeltaSnapshot__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__SystemInterface__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__System__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__TestResult__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ThorOrchestrationQueue__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__TimePlan__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__TimePolicy__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__UIFacet__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Stage__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__StateTransition__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__SecurityDeposit__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ServicePoint__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__SpecTemplateAttributeMapping__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__SpecTemplateMapping__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__RuleVariable__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Rule__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ScreeningRuleGroup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ScreeningRule__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteGroup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteLineItemAdPlacement__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteLineItemPricingAdjustment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteLineItemRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteMember__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuotePricingAdjustment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteProductRollup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__RelationshipGraphNodeType__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__RelationshipGraphTraversal__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__RelationshipGraph__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__RuleAction__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__RuleAssignment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__RuleFilter__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__RuleProperty__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PromotionItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PromotionPricingAlteration__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Promotion__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteAppliedPromotionItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteAppliedPromotion__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteDiscountItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteDiscountPricing__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__QuoteDiscount__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProfilingSegment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProjectItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Project__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PromotionApplicableProduct__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PromotionIncludedProduct__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProductAttribXN__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProductAvailability__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProductChildItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProductConfigurationProcedure__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProductEligibility__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProductRelationshipType__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProductRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProductTemplate__c" name="Less than 100 custom fields">
-      <failure message="Changed done by Amaury Oudin"/>
+  <testsuite name="Check rules for EntityDefinition" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for CustomField" tests="102" failures="56" errors="0" skipped="0">
+    <testcase classname="CustomField.AdresseCodeINSEE" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Test_Formula1_del" name="A CustomField API Name must be PascalCase">
+      <failure message="Changed done by Stephanie Tinseau"/>
     </testcase>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProfileCategoryAssignment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ProfilingSegmentCategory__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PricingComponentRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PricingComponent__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PricingElement__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PricingPlanStep__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PricingPlan__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PricingVariableBinding__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PricingVariable__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PremisesPartyRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Premises__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PriceListEntry__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PriceList__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PaymentPlan__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PicklistSelectionEntry__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PicklistValue__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Picklist__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Party_Association__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Party__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PaymentAdjustment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PaymentMethod__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PartyRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderDiscountPricing__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderDiscount__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderGroup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderItemAdPlacement__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderItemPriceAdjustment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderItemRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderMember__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderPayment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderPriceAdjustment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderProductRollup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OutboundConfiguration__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OverrideDefinition__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PartyMergeRequest__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__PartyRelationshipType__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationItemRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationItemSource__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationPlanDefinition__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationPlan__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationQueueAssignmentRule__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationQueue__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationScenario__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationSchedulerImplementation__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderAppliedPromotionItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderAppliedPromotion__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrderDiscountItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityDiscountItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityDiscountPricing__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityDiscount__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityGroup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityLineItemRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityMember__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityPriceAdjustment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationDependencyDefinition__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationDependency__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OrchestrationItemDefinition__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OmniScript__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OmniUserSession__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OperatingHoursEntry__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OperatingHours__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityAppliedPromotionItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OpportunityAppliedPromotion__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ObjectElement__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ObjectFacet__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ObjectFieldAttribute__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ObjectLayout__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ObjectRuleAssignment__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ObjectSection__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OfferMigrationComponentMapping__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OfferMigrationPlan__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OfferPricingComponent__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OfferingProcedure__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OmniScriptDefinition__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__OmniScriptInstance__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ItemImplementation__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Jurisdiction__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__LargeDataStore__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__LineOfBusiness__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ManualQueueMember__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ManualQueue__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__MediaContentTitle__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__MediaProperty__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ObjectAppliedResult__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ObjectClass__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__InterfaceImplementation__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Interface_BillingInfo__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Interface_DRGeneric__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Interface_ProductAttribute__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__InventoryItemDecompositionRelationship__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__InventoryItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__FulfilmentRequestLineSourceRootOrderItem__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__FulfilmentRequestLine__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__FulfilmentRequest__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__GenericDocument__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__GenericEnvelope__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__GenericRecipient__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__GraphClone__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__Household__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__InboundRESTInterface__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__IntegrationRetryPolicy__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__InterfaceImplementationDetail__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__EntityFilter__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ErrorCodeNamespace__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.vlocity_cmt__ErrorCode__c" name="Less than 100 custom fields"/>
+    <testcase classname="CustomField.Test_Picklist1_del" name="A CustomField API Name must be PascalCase">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Contact" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.InterlocuteurRecurrent" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.NombreReaffectations" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Answer" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Question" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.AddressExtras" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Address" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Email" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.MobilePhone2" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Phone2" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.MobilePhone1" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Phone1" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Test" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.TECH_BlnEcheance2j" name="A CustomField API Name must be PascalCase">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Client" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Contrat" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Interlocuteur" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.RelatedRole" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Account" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.CustomerAccount" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.CustomerAccount" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Role" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Origin" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Adresse" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Email" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Phone" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.ContactRole" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.DeployID" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.DeployID" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.DeployID" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.MotifCloture" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.ExternalId" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.TECH_TraitementImmediat" name="A CustomField API Name must be PascalCase">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.PRM" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.PRM" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.SourceCanalContact" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.AdressePostale" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Type_canal_de_contact" name="A CustomField API Name must be PascalCase">
+      <failure message="Changed done by Jérémy Duthoit"/>
+    </testcase>
+    <testcase classname="CustomField.EtatPRM" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.TypeBranchement" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.AdressePRM" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.TypeContrat" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.EtatCompteur" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.PuissanceSouscrite" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.TypeBranchement" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.Status" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.DateMES" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.IsRecurrentContact" name="A CustomField API Name must be PascalCase"/>
+    <testcase classname="CustomField.AdresseCodeINSEE" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Test_Formula1_del" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Test_Picklist1_del" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Contact" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.InterlocuteurRecurrent" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.NombreReaffectations" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Shamina MOSSODEEA"/>
+    </testcase>
+    <testcase classname="CustomField.Answer" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Question" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.AddressExtras" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Address" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Email" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.MobilePhone2" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Phone2" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.MobilePhone1" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Phone1" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Test" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Kévin MOULET"/>
+    </testcase>
+    <testcase classname="CustomField.TECH_BlnEcheance2j" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Client" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.Contrat" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.Interlocuteur" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.RelatedRole" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.Account" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.CustomerAccount" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.CustomerAccount" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.Role" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.Origin" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.Adresse" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.Email" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.Phone" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.ContactRole" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Sabri BENHADDA"/>
+    </testcase>
+    <testcase classname="CustomField.DeployID" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Thomas Braux"/>
+    </testcase>
+    <testcase classname="CustomField.DeployID" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Thomas Braux"/>
+    </testcase>
+    <testcase classname="CustomField.DeployID" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Thomas Braux"/>
+    </testcase>
+    <testcase classname="CustomField.MotifCloture" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Shamina MOSSODEEA"/>
+    </testcase>
+    <testcase classname="CustomField.ExternalId" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.TECH_TraitementImmediat" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.PRM" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.PRM" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Jérémy Duthoit"/>
+    </testcase>
+    <testcase classname="CustomField.SourceCanalContact" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Jérémy Duthoit"/>
+    </testcase>
+    <testcase classname="CustomField.AdressePostale" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Jérémy Duthoit"/>
+    </testcase>
+    <testcase classname="CustomField.Type_canal_de_contact" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Jérémy Duthoit"/>
+    </testcase>
+    <testcase classname="CustomField.EtatPRM" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.TypeBranchement" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.AdressePRM" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.TypeContrat" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.EtatCompteur" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.PuissanceSouscrite" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Nicolas Despres"/>
+    </testcase>
+    <testcase classname="CustomField.TypeBranchement" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.Status" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.DateMES" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="CustomField.IsRecurrentContact" name="Custom Fields must have a Description.">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
   </testsuite>
-  <testsuite name="Check rules for CustomField" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for Flow" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for PermissionSet" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for ApexClass" tests="0" failures="0" errors="0" skipped="0"/>
-  <testsuite name="Check rules for LightningComponentResource" tests="4" failures="3" errors="0" skipped="0">
-    <testcase classname="LightningComponentResource.lwc/cFOS1French/cFOS1French.js" name="An LWC must have an author">
-      <failure message="Changed done by Amaury Oudin"/>
-    </testcase>
-    <testcase classname="LightningComponentResource.lwc/cFOS1French/cFOS1French_def.js" name="An LWC must have an author">
-      <failure message="Changed done by Amaury Oudin"/>
-    </testcase>
-    <testcase classname="LightningComponentResource.lwc/cFOS1French/cFOS1French.js" name="An LWC must have a description"/>
-    <testcase classname="LightningComponentResource.lwc/cFOS1French/cFOS1French_def.js" name="An LWC must have a description">
-      <failure message="Changed done by Amaury Oudin"/>
-    </testcase>
-  </testsuite>
+  <testsuite name="Check rules for LightningComponentResource" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for OmniUiCard" tests="0" failures="0" errors="0" skipped="0"/>
-  <testsuite name="Check rules for OmniProcess" tests="22" failures="4" errors="0" skipped="0">
-    <testcase classname="OmniProcess.OS1" name="Omniscripts must have a description"/>
-    <testcase classname="OmniProcess.OS1" name="Omniscripts must have a description">
-      <failure message="Changed done by Nicolas Despres"/>
-    </testcase>
-    <testcase classname="OmniProcess.OS2" name="Omniscripts must have a description">
-      <failure message="Changed done by Amaury Oudin"/>
-    </testcase>
-    <testcase classname="OmniProcess.OS1" name="Omniscripts must have a description">
-      <failure message="Changed done by Amaury Oudin"/>
-    </testcase>
-    <testcase classname="OmniProcess.InteractionClick" name="Omniscripts must have a description">
-      <failure message="Changed done by Automated Process"/>
-    </testcase>
-    <testcase classname="OmniProcess.CreateCustomerInteractionAccountCMT" name="Omniscripts must have a description"/>
-    <testcase classname="OmniProcess.XOMWorkItemExecutionOmni" name="Omniscripts must have a description"/>
-    <testcase classname="OmniProcess.Account Search" name="Omniscripts must have a description"/>
-    <testcase classname="OmniProcess.CreateCustomerInteractionAccount" name="Omniscripts must have a description"/>
-    <testcase classname="OmniProcess.CreateCustomerInteractionContactCMT" name="Omniscripts must have a description"/>
-    <testcase classname="OmniProcess.CreateCustomerInteractionContact" name="Omniscripts must have a description"/>
-    <testcase classname="OmniProcess.OS1" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.OS1" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.OS2" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.OS1" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.InteractionClick" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.CreateCustomerInteractionAccountCMT" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.XOMWorkItemExecutionOmni" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.Account Search" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.CreateCustomerInteractionAccount" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.CreateCustomerInteractionContactCMT" name="Omniscripts must have less than 100 elements"/>
-    <testcase classname="OmniProcess.CreateCustomerInteractionContact" name="Omniscripts must have less than 100 elements"/>
-  </testsuite>
+  <testsuite name="Check rules for OmniProcess" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for OmniProcessElement" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for OmniDataTransform" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for FieldPermissions" tests="0" failures="0" errors="0" skipped="0"/>
 </testsuites>

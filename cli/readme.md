@@ -4,12 +4,13 @@
 ## Pipeline integration
 Create a file named `.env` with the following content:
 ```bash
-USERNAME=XXX
-PASSWORD=XXX # Password+SecurityToken
+SFEXP_LOGIN=XXX # remove it to use SFDX instead
+SFEXP_PASSWORD=XXX # Password+SecurityToken, remove it to use SFDX instead
 LOGINURL=https://login.salesforce.com #or https://test.salesforce.com
 DATE=TODAY  #or 2024-01-01
 RULES=EntityDefinition,CustomField  #specify to only run rules on EntityDefinition and CustomField - remove param to check all rules
 ```
+To connect with SFDX, don't use the `SF_LOGIN`/`PASSWORD` env var.
 
 Run the command:  
 ```cmd

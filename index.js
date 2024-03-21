@@ -14,7 +14,7 @@ function soqlFromRule(rule, date) {
     const fromDateCriteria = `where ${dateCriteria(rule.sObject)} > ${fromDate}T00:00:00Z`
     const criteria = rule.when ? ` and ${rule.when}` : ''
     const query = `Select ${rule.field}${rule.relatedFields ?
-        (', ' + rule.relatedFields.join(', ')) : ''}${rule.nameField ? `, ${rule.nameField}` : ''} ${lastUser(rule.sObject)}
+        (', ' + rule.relatedFields.join(', ')) : ''}${rule.nameField ? `, ${rule.nameField}` : ''} ${lastUser(rule.sObject)}, ${dateCriteria(rule.sObject)}
     from ${rule.sObject}
        ${fromDateCriteria} ${criteria} 
        order by ${dateCriteria(rule.sObject)} desc limit 200`
@@ -59,7 +59,7 @@ function hasBestPractices(sobject) {
 
 function passRule(sobject, rule) {
     const data = getValue(sobject, rule)
-    if (rule.regex) {
+    if (rule.regex && data) {
         const pattern = new RegExp(rule.regex)
         if (Array.isArray(data)) {
             const subErrors = data.filter(el => !pattern.test(el?.name || ''))
@@ -67,7 +67,10 @@ function passRule(sobject, rule) {
                 return false
             }
         } else {
-            return false
+            if (typeof data === "string"){
+                return pattern.test(data)
+            }
+            return pattern.test(data.toString())
         }
     } else if (rule.lessThan ) {
         if (typeof data === 'number') {
