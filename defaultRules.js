@@ -167,14 +167,15 @@ Autolaunched Flow:
         sObject: "PermissionSet",
         field: "Description",
         nameField: "Name",
+        regex: "^.{20,}$",
         when: "IsOwnedByProfile = false and NamespacePrefix = null",
-        message: "Description is required",
+        message: "Description is required (more than 20 chars)",
     },
     {
         sObject: "PermissionSet",
         field: "Name",
         when: "IsOwnedByProfile = false and NamespacePrefix = null",
-        message: "Name is required",
+        message: "Name is following project convention",
         goodExample: PSetExample,
     },
     {

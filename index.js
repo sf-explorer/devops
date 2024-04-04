@@ -78,9 +78,11 @@ function passRule(sobject, rule) {
         }
         return data === undefined || data === ''
     } else if (!data) {
+        
         return false
     }
-    return false
+    // no specific rule, true if not undefined
+    return true
 }
 
 function checkBestPractices(sobject) {
