@@ -1,0 +1,61 @@
+[
+  {
+    "sObject": "OmniUiCard",
+    "field": "Description",
+    "regex": "^.{20,}$",
+    "nameField": "Name",
+    "message": "Flexcards must have a description"
+  },
+  {
+    "sObject": "OmniProcess",
+    "field": "Description",
+    "nameField": "Name",
+    "message": "Omniscripts must have a description"
+  },
+  {
+    "sObject": "OmniProcess",
+    "field": "Name",
+    "relatedFields": ["(select id from OmniProcessElements)"],
+    "computedField": "OmniProcessElements.totalSize",
+    "lessThan": 100,
+    "message": "Omniscripts must have less than 100 elements"
+  },
+  {
+    "sObject": "OmniProcess",
+    "field": "Type",
+    "regex": "^[a-z][A-Za-z0-9]*$",
+    "nameField": "Name",
+    "message": "OmniProcess type should be camel case"
+  },
+  {
+    "sObject": "OmniProcessElement",
+    "nameField": "Name",
+    "regex": "^.{20,}$",
+    "field": "Description",
+    "when": "(Type = 'Remote Action' or Type = 'DataRaptor Extract Action')",
+    "message": "Remote action and DataRaptor Actions must have a description"
+  },
+  {
+    "sObject": "OmniProcessElement",
+    "field": "Name",
+    "regex": "SV[A-Za-z0-9]*$",
+    "when": "(Type = 'Set Values')",
+    "message": "Set Values must start with SV+PascalCase"
+  },
+  {
+    "sObject": "OmniProcessElement",
+    "nameField": "Name",
+    "field": "PropertySetConfig",
+    "computedField": "elementValueMap",
+    "regex": "[A-Za-z0-9]*$",
+    "when": "(Type = 'Set Values')",
+    "message": "Set Values must start with SV+PascalCase"
+  },
+  {
+    "sObject": "OmniDataTransform",
+    "nameField": "Name",
+    "field": "Description",
+    "regex": "^.{20,}$",
+    "message": "DataRaptors must have a description"
+  }
+]

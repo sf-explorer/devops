@@ -5,9 +5,9 @@ const path = require('path'),
     jsforce = require('jsforce')
 const { exit } = require('process')
 var builder = require('junit-report-builder')
-const { command } = require('@polycuber/script.cli')
+const { command, file } = require('@polycuber/script.cli')
 
-const { rules, soqlFromRule, checkBestPractices, passRule } = require("@sf-explorer/devops")
+const { rules, soqlFromRule, checkBestPractices, passRule, getValue } = require("@sf-explorer/devops")
 
 require('dotenv').config();
 const LOGIN_URL = process.env.LOGINURL || 'https://test.salesforce.com'
@@ -16,7 +16,7 @@ const LOGIN_URL = process.env.LOGINURL || 'https://test.salesforce.com'
 const version = '59.0'
 
 var conn = new jsforce.Connection({ loginUrl: LOGIN_URL, version })
-
+var ignoreList = []
 
 const rulesByObject = rules.reduce((prev, cur) => {
     if (!prev[cur.sObject]) {
@@ -33,10 +33,26 @@ function getRecordName(record, rule) {
 
 }
 
+function getFullName(record, rule) {
+    const cValue = getValue(record, rule)
+    let value = ''
+    if (typeof cValue === 'string'){
+        value = cValue?.slice(0,20)
+    } 
+    if (rule.nameField ) {
+        let res = record[rule.nameField] 
+        if (value!=='') {
+            res = res + '.' + value
+        }
+        return res
+    }
+    return value
+}
+
 
 async function query(soql, tooling) {
     if (process.env.PASSWORD) {
-        const parent = rule.tooling ? conn.tooling : conn
+        const parent = tooling ? conn.tooling : conn
         return parent.query(soql)
     }
 
@@ -57,21 +73,34 @@ async function computeRule(rule, suite) {
         const res = await query(soql.replaceAll('\n', ' ').replaceAll("'", "\'"), rule.tooling)
         const errors = res.records.map(record => {
             var testCase = suite.testCase()
-                .className(rule.sObject + '.' + getRecordName(record, rule))
+                .className(rule.sObject + '.' + getFullName(record, rule))
                 .name(rule.message)
-            const recordErrors = passRule(record, rule) ? [] : [{}]
-            if (recordErrors.length > 0) {
-                testCase.failure('Changed done by ' + (record.LastModifiedBy?.Name || ''))
-            }
-            return { errors: recordErrors }
 
-        }).filter(res => res.errors.length > 0)
+            const ignore = ignoreList.some(exclusionRule => {
+                const pattern = new RegExp(exclusionRule)
+                return pattern.test(rule.sObject + '.' + getFullName(record, rule))
+            })
+            //.includes(rule.sObject + '.' + getFullName(record, rule))
+            const recordError = (ignore || passRule(record, rule)) ? undefined : {
+                scope: rule.sObject,
+                target: getFullName(record, rule),
+                violation: rule.message,
+                author: record.LastModifiedBy?.Name || '',
+                date: record.LastModifiedDate?.slice(0, 10) || ''
+            }
+            if (recordError) {
+                testCase.failure('Changed done by ' + (record.LastModifiedBy?.Name || ''))
+
+            }
+            return recordError
+
+        }).filter(res => res !== undefined)
 
         console.log(`${rule.sObject}.${rule.field}[${rule.message}] ${errors.length}/${res.records.length}`)
-        return errors.length
+        return errors
     } catch (e) {
         console.error(e, soql)
-        return 0
+        return []
     }
 }
 
@@ -99,15 +128,31 @@ async function main() {
             return computeRule(rule, rulesByObject[rule.sObject])
         })
 
-    const res = await Promise.all(promises)
-    const result = res.reduce((prev, cur) => {
-        return prev + cur
-    }, 0)
+    const computedRules = await Promise.all(promises)
+
+    const allErrors = [].concat.apply([], computedRules)
+    
+    const nbErrors = allErrors.length
+    var csv_string = allErrors.map(error => Object.values(error).join(',')).join('\n')
+    file.write.json('errors.json', allErrors)
+    file.write.text('errors.csv', csv_string)
+
     builder.writeTo('test-report.xml')
-    if (result > 0) {
-        console.error('Found', result, 'errors, see test-report.xml for details.')
+    if (nbErrors > 0) {
+        console.table(allErrors)
+        console.error('Found', nbErrors, 'errors, see test-report.xml for details.')
+        console.info("You may ignore errors with a file named '.sfexplorerignore'")
+    } else {
+        console.log('No error found')
     }
-    exit(result > 0 ? 1 : 0)
+    exit(nbErrors > 0 ? 1 : 0)
+}
+
+if (file.exists('./.sfexplorerignore')) {
+    //console.log('ignore list')
+    const ignore = file.read.text('./.sfexplorerignore')
+    ignoreList = ignore.split('\n').filter(rule => rule.indexOf('#') !== 0)
+
 }
 
 main()

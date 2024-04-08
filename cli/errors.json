@@ -1,0 +1,107 @@
+[
+  {
+    "scope": "EntityDefinition",
+    "target": "sObject_Trigger_Setting__mdt",
+    "violation": "A custom object Description is required",
+    "author": "Stephanie Tinseau",
+    "date": "2024-03-21"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "DML_Finalizer__mdt",
+    "violation": "A custom object Description is required",
+    "author": "Stephanie Tinseau",
+    "date": "2024-03-21"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "Coordonnees__c",
+    "violation": "A custom object Description is required",
+    "author": "Sabri BENHADDA",
+    "date": "2024-02-27"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "ContractParticipant__c",
+    "violation": "A custom object Description is required",
+    "author": "Nicolas Despres",
+    "date": "2024-01-29"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "Knowledge__ka",
+    "violation": "A custom object Description is required",
+    "author": "Nicolas Despres",
+    "date": "2024-01-23"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "Knowledge__kav",
+    "violation": "A custom object Description is required",
+    "author": "Nicolas Despres",
+    "date": "2024-01-23"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "CI_Commit__mdt",
+    "violation": "A custom object Description is required",
+    "author": "Amaury Oudin",
+    "date": "2024-01-22"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "TEST_ContactRole__c",
+    "violation": "A custom object Name must be PascalCase",
+    "author": "Jérémy Duthoit",
+    "date": "2024-04-02"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "sObject_Trigger_Sett",
+    "violation": "A custom object Name must be PascalCase",
+    "author": "Stephanie Tinseau",
+    "date": "2024-03-21"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "DML_Finalizer__mdt",
+    "violation": "A custom object Name must be PascalCase",
+    "author": "Stephanie Tinseau",
+    "date": "2024-03-21"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "LogEntryEvent__e",
+    "violation": "A custom object Name must be PascalCase",
+    "author": "Stephanie Tinseau",
+    "date": "2024-03-21"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "CI_Commit__mdt",
+    "violation": "A custom object Name must be PascalCase",
+    "author": "Amaury Oudin",
+    "date": "2024-01-22"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "Timeline_Configurati",
+    "violation": "A custom object Name must be PascalCase",
+    "author": "Nicolas Despres",
+    "date": "2024-01-22"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "LogEntry__c",
+    "violation": "Less than 100 custom fields",
+    "author": "Stephanie Tinseau",
+    "date": "2024-03-21"
+  },
+  {
+    "scope": "EntityDefinition",
+    "target": "LogEntryEvent__e",
+    "violation": "Less than 100 custom fields",
+    "author": "Stephanie Tinseau",
+    "date": "2024-03-21"
+  }
+]

@@ -1,3 +1,4 @@
+const omnistudio = require("./rules/omnistudio.json")
 const PSetExample = `### For Object/Field pern sets,
 Start with the Object Name, and with the CRUD access provided, and anything special goes in the middle. Like this:
 
@@ -92,6 +93,7 @@ const rules = [
     {
         sObject: "EntityDefinition",
         field: "QualifiedApiName",
+        nameField: "QualifiedApiName",
         relatedFields: ["(select QualifiedApiName from Fields where QualifiedApiName like '%__c')"],
         computedField: "Fields.totalSize",
         lessThan: 100,
@@ -100,6 +102,7 @@ const rules = [
     {
         sObject: "EntityDefinition",
         field: "QualifiedApiName",
+        nameField: "QualifiedApiName",
         relatedFields: ["(select Name from ApexTriggers where NamespacePrefix = null limit 10 )"],
         computedField: "ApexTriggers.totalSize",
         when: "PublisherId = '<local>'",
@@ -122,7 +125,7 @@ const rules = [
         field: "DeveloperName",
         regex: "^[A-Z][A-Za-z0-9]*$",
         when: "ManageableState = 'unmanaged'",
-        message: "A CustomField API Name must be PascalCase",
+        message: "A CustomField API Name must be in english and PascalCase",
         tooling: true,
         goodExample: "PhoneNumber",
         badExample: 'Phone_Number',
@@ -133,14 +136,13 @@ const rules = [
         when: "ManageableState = 'unmanaged'",
         field: "Description",
         tooling: true,
-        message: "Custom Fields must have a Description.",
-        additionalMessage: "If you lack imagination, use SF Explorer ChatGPT native integration to generate it!"
+        message: "Custom Fields must have a Description."
     },
     {
         sObject: "Flow",
         field: "Description",
+        nameField: "MasterLabel",
         regex: "^.{20,}$",
-        goodExample: "More than 20 chars",
         tooling: true,
         message: "Flow Description is required"
     },
@@ -149,7 +151,7 @@ const rules = [
         field: "MasterLabel",
         tooling: true,
         message: `Flow Label must be Short Yet Meaningful`,
-        additionalMessage:`
+        additionalMessage: `
 **Autolaunched Flow:**
 - Users or Apps: <Verb(s)><Optional Noun Set>
 - Flow Trigger: <Object Name> Before Handler
@@ -258,50 +260,6 @@ Autolaunched Flow:
         message: "An LWC must have a description",
     },
     {
-        sObject: "OmniUiCard",
-        field: "Description",
-        nameField: "Name",
-        message: "Flexcards must have a description",
-    },
-    {
-        sObject: "OmniProcess",
-        field: "Description",
-        nameField: "Name",
-        message: "Omniscripts must have a description",
-    },
-    {
-        sObject: "OmniProcess",
-        field: "Name",
-        relatedFields: ["(select id from OmniProcessElements)"],
-        computedField: "OmniProcessElements.totalSize",
-        lessThan: 100,
-        message: "Omniscripts must have less than 100 elements",
-    },
-    {
-        sObject: "OmniProcess",
-        field: "Type",
-        regex: "^[a-z][A-Za-z0-9]*$",
-        nameField: "Name",
-        message: "OmniProcess type should be camel case",
-    },
-    {
-        sObject: "OmniProcessElement",
-        nameField: "Name",
-        regex: "^.{20,}$",
-        field: "Description",
-        when: "(Type = 'Remote Action' or Type = 'DataRaptor Extract Action')",
-        message: "Remote action and DataRaptor Actions must have a description",
-        goodExample: "More than 20 chars",
-    },
-    {
-        sObject: "OmniDataTransform",
-        nameField: "Name",
-        field: "Description",
-        regex: "^.{20,}$",
-        message: "DataRaptors must have a description",
-        goodExample: "More than 20 chars",
-    },
-    {
         sObject: "FieldPermissions",
         nameField: "SobjectType",
         field: "Field",
@@ -309,8 +267,8 @@ Autolaunched Flow:
         goodExample: "Use a permission set instead",
         where: 'ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true)'
     },
+    ...omnistudio
 
-   
 ]
 
 module.exports = rules

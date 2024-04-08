@@ -5,3 +5,6 @@ cli/.env
 devops/.sfdx/indexes/lwc/custom-components.json
 .sfdx
 sfdx/test-report.xml 
+cli/errors.csv
+cli/errors.json
+sfdx/errors.json

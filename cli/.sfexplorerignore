@@ -1,0 +1,8 @@
+# third party package
+Trigger_Action__mdt.*
+EntityDefinition.LogEntryTagRule__mdt
+EntityDefinition.Knowledge__ka.Description
+EntityDefinition.Knowledge__kav.Description
+EntityDefinition.LogEntryD
+LightningComponentResource*
+ApexClass*

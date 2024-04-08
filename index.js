@@ -10,11 +10,11 @@ function lastUser(sobject){
 }
 
 function soqlFromRule(rule, date) {
-    const fromDate = date ? date : '2024-01-01'
+    const fromDate = date ? date : '2024-03-15'
     const fromDateCriteria = `where ${dateCriteria(rule.sObject)} > ${fromDate}T00:00:00Z`
     const criteria = rule.when ? ` and ${rule.when}` : ''
     const query = `Select ${rule.field}${rule.relatedFields ?
-        (', ' + rule.relatedFields.join(', ')) : ''}${rule.nameField ? `, ${rule.nameField}` : ''} ${lastUser(rule.sObject)}, ${dateCriteria(rule.sObject)}
+        (', ' + rule.relatedFields.join(', ')) : ''}${rule.nameField && rule.nameField !== rule.field ? `, ${rule.nameField}` : ''} ${lastUser(rule.sObject)}, ${dateCriteria(rule.sObject)}
     from ${rule.sObject}
        ${fromDateCriteria} ${criteria} 
        order by ${dateCriteria(rule.sObject)} desc limit 200`
