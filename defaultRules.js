@@ -72,6 +72,16 @@ public with sharing class BoatDataService {
 const rules = [
     {
         sObject: "EntityDefinition",
+        field: "QualifiedApiName",
+        computedField: "QualifiedApiName",
+        when: "PublisherId = '<local>'",
+        regex: "^[A-Z][A-Za-z0-9]*(__c|__mdt|__ka|__kav)$",
+        message: "A custom object Name must be in english and PascalCase",
+        goodExample: "InsurancePolicy",
+        badExample: 'Insurance_Policy',
+    },
+    {
+        sObject: "EntityDefinition",
         field: "Description",
         regex: "^.{20,}$",
         nameField: "QualifiedApiName",
@@ -79,16 +89,6 @@ const rules = [
         goodExample: "More than 20 chars",
         tooling: true,
         when: "PublisherId = '<local>'",
-    },
-    {
-        sObject: "EntityDefinition",
-        field: "QualifiedApiName",
-        computedField: "QualifiedApiName",
-        when: "PublisherId = '<local>'",
-        regex: "^[A-Z][A-Za-z0-9]*(__c|__mdt|__ka|__kav)$",
-        message: "A custom object Name must be PascalCase",
-        goodExample: "InsurancePolicy",
-        badExample: 'Insurance_Policy',
     },
     {
         sObject: "EntityDefinition",
@@ -108,7 +108,7 @@ const rules = [
         when: "PublisherId = '<local>'",
         tooling: true,
         lessThan: 2,
-        message: "Maximum one custom trigger"
+        message: "Maximum one custom trigger per object"
     },
     {
         sObject: "EntityDefinition",
@@ -117,8 +117,8 @@ const rules = [
         computedField: "RecordTypes.totalSize",
         when: "PublisherId = '<local>'",
         tooling: true,
-        lessThan: 4,
-        message: "Maximum 3 record types"
+        lessThan: 16,
+        message: "Maximum 15 record types per object"
     },
     {
         sObject: "CustomField",
@@ -135,8 +135,9 @@ const rules = [
         nameField: "DeveloperName",
         when: "ManageableState = 'unmanaged'",
         field: "Description",
+        regex: "^.{20,}$",
         tooling: true,
-        message: "Custom Fields must have a Description."
+        message: "Custom Fields must have a Description (at least 20 chars)"
     },
     {
         sObject: "Flow",
@@ -144,7 +145,7 @@ const rules = [
         nameField: "MasterLabel",
         regex: "^.{20,}$",
         tooling: true,
-        message: "Flow Description is required"
+        message: "Flow Description is required (at least 20 chars)"
     },
     {
         sObject: "Flow",
@@ -167,6 +168,13 @@ Autolaunched Flow:
     },
     {
         sObject: "PermissionSet",
+        field: "Name",
+        when: "IsOwnedByProfile = false and NamespacePrefix = null",
+        message: "Name is following project convention",
+        goodExample: PSetExample,
+    },
+    {
+        sObject: "PermissionSet",
         field: "Description",
         nameField: "Name",
         regex: "^.{20,}$",
@@ -174,17 +182,10 @@ Autolaunched Flow:
         message: "Description is required (more than 20 chars)",
     },
     {
-        sObject: "PermissionSet",
-        field: "Name",
-        when: "IsOwnedByProfile = false and NamespacePrefix = null",
-        message: "Name is following project convention",
-        goodExample: PSetExample,
-    },
-    {
         sObject: "ApexClass",
         field: "Name",
         when: "NamespacePrefix = null",
-        regex: "^[A-Z][A-Za-z0-9_]*(_Controller|_ServiceIn|_ServiceOut|_Test|_Helper|_Interface|_Mock|_ServiceAPI|_Util|_Batchable|_Queuable|_Schedulable)$",
+        regex: "^[A-Z][A-Za-z0-9_]*(Controller|CallIn|CallOut|Test|Helper|Mapping|Mock|TriggerHandler|TestDataFactory|Wrapper|Constant|Batchable|Queuable|Schedulable|EntityManager|ServiceManager|DataManager)$",
         message: "An Apex class name must be PascalCase and use a correct Suffix",
         goodExample: ApexGoodExample,
     },
@@ -263,9 +264,9 @@ Autolaunched Flow:
         sObject: "FieldPermissions",
         nameField: "SobjectType",
         field: "Field",
-        message: "No field level security on Profiles",
+        message: "No field level security on Profiles (except System Administrator)",
         goodExample: "Use a permission set instead",
-        where: 'ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true)'
+        where: "ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true) and Parent.Profile.Name != 'System Administrator'"
     },
     ...omnistudio
 

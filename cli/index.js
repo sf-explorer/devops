@@ -17,6 +17,7 @@ const version = '59.0'
 
 var conn = new jsforce.Connection({ loginUrl: LOGIN_URL, version })
 var ignoreList = []
+var ignoreAuthorList = []
 
 const rulesByObject = rules.reduce((prev, cur) => {
     if (!prev[cur.sObject]) {
@@ -36,12 +37,12 @@ function getRecordName(record, rule) {
 function getFullName(record, rule) {
     const cValue = getValue(record, rule)
     let value = ''
-    if (typeof cValue === 'string'){
-        value = cValue?.slice(0,20)
-    } 
-    if (rule.nameField ) {
-        let res = record[rule.nameField] 
-        if (value!=='') {
+    if (typeof cValue === 'string') {
+        value = cValue?.slice(0, 30)
+    }
+    if (rule.nameField) {
+        let res = record[rule.nameField]
+        if (value !== '') {
             res = res + '.' + value
         }
         return res
@@ -65,6 +66,14 @@ async function query(soql, tooling) {
     throw 'Invalid Query'
 }
 
+function ignoreRecord(record, rule) {
+    const ignoreBasedOnAuthor = ignoreAuthorList.includes('@' + record.LastModifiedBy?.Name)
+    return ignoreBasedOnAuthor || ignoreList.some(exclusionRule => {
+        const pattern = new RegExp(exclusionRule)
+        return pattern.test(rule.sObject + '.' + getFullName(record, rule))
+    })
+}
+
 async function computeRule(rule, suite) {
     const date = process.env.DATE === 'TODAY' ? new Date().toISOString().slice(0, 10) : process.env.DATE
     const soql = soqlFromRule(rule, date)
@@ -72,16 +81,14 @@ async function computeRule(rule, suite) {
     try {
         const res = await query(soql.replaceAll('\n', ' ').replaceAll("'", "\'"), rule.tooling)
         const errors = res.records.map(record => {
+            const ignore = ignoreRecord(record, rule)
+            if (ignore) return
+
             var testCase = suite.testCase()
                 .className(rule.sObject + '.' + getFullName(record, rule))
                 .name(rule.message)
 
-            const ignore = ignoreList.some(exclusionRule => {
-                const pattern = new RegExp(exclusionRule)
-                return pattern.test(rule.sObject + '.' + getFullName(record, rule))
-            })
-            //.includes(rule.sObject + '.' + getFullName(record, rule))
-            const recordError = (ignore || passRule(record, rule)) ? undefined : {
+            const recordError = passRule(record, rule) ? undefined : {
                 scope: rule.sObject,
                 target: getFullName(record, rule),
                 violation: rule.message,
@@ -96,7 +103,7 @@ async function computeRule(rule, suite) {
 
         }).filter(res => res !== undefined)
 
-        console.log(`${rule.sObject}.${rule.field}[${rule.message}] ${errors.length}/${res.records.length}`)
+        //console.log(`${rule.sObject}.${rule.field}[${rule.message}] ${errors.length}/${res.records.length}`)
         return errors
     } catch (e) {
         console.error(e, soql)
@@ -131,7 +138,7 @@ async function main() {
     const computedRules = await Promise.all(promises)
 
     const allErrors = [].concat.apply([], computedRules)
-    
+
     const nbErrors = allErrors.length
     var csv_string = allErrors.map(error => Object.values(error).join(',')).join('\n')
     file.write.json('errors.json', allErrors)
@@ -149,10 +156,14 @@ async function main() {
 }
 
 if (file.exists('./.sfexplorerignore')) {
-    //console.log('ignore list')
     const ignore = file.read.text('./.sfexplorerignore')
-    ignoreList = ignore.split('\n').filter(rule => rule.indexOf('#') !== 0)
+    ignoreList = ignore.split('\n')
+        .filter(rule => rule.indexOf('#') !== 0)
+        .filter(rule => rule.indexOf('@') !== 0)
+        .filter(rule => rule.replaceAll(' ', '') !== '')
 
+    ignoreAuthorList = ignore.split('\n')
+        .filter(rule => rule.indexOf('@') === 0)
 }
 
 main()

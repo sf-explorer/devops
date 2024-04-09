@@ -1,9 +1,8 @@
 # Flow
-## Flow Description is required
+## Flow Description is required (at least 20 chars)
 Field: `Description`   
 Regex: `^.{20,}$`    
-#### Example
-More than 20 chars  
+
 
 
 ## Flow Label must be Short Yet Meaningful

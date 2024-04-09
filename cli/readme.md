@@ -20,4 +20,6 @@ The command will generate an output file name `testReport.xml` similar to the on
 
 ## Ignore metadata
 You can ignore specific errors with a file named `.sfexplorerignore` (using regex similar to a .gitignore file)
+- ignore an author with @ and the author name
+- ignore a record with its type and target
 
