@@ -1,23 +1,26 @@
 #!/usr/bin/env node
 
 // 3rd party dependencies
-const path = require('path'),
-    jsforce = require('jsforce')
+const jsforce = require('jsforce')
 const { exit } = require('process')
 var builder = require('junit-report-builder')
 const { command, file } = require('@polycuber/script.cli')
-
-const { rules, soqlFromRule, checkBestPractices, passRule, getValue } = require("@sf-explorer/devops")
+const { rules,
+    soqlFromRule,
+    passRule,
+    getValue
+} = require("@sf-explorer/devops")
 
 require('dotenv').config();
 const LOGIN_URL = process.env.LOGINURL || 'https://test.salesforce.com'
 
 
-const version = '59.0'
+const version = '60.0'
 
 var conn = new jsforce.Connection({ loginUrl: LOGIN_URL, version })
 var ignoreList = []
 var ignoreAuthorList = []
+let runtime = 'sf'
 
 const rulesByObject = rules.reduce((prev, cur) => {
     if (!prev[cur.sObject]) {
@@ -25,14 +28,6 @@ const rulesByObject = rules.reduce((prev, cur) => {
     }
     return prev
 }, {})
-
-function getRecordName(record, rule) {
-    if (rule.nameField) {
-        return record[rule.nameField]
-    }
-    return record[rule.field]
-
-}
 
 function getFullName(record, rule) {
     const cValue = getValue(record, rule)
@@ -52,12 +47,12 @@ function getFullName(record, rule) {
 
 
 async function query(soql, tooling) {
-    if (process.env.PASSWORD) {
+    if (process.env.PASSWORD || process.env.SFEXP_PASSWORD) {
         const parent = tooling ? conn.tooling : conn
         return parent.query(soql)
     }
 
-    const context = command.read.exec('sfdx force:data:soql:query -q "' + soql + '" --json' + (tooling ? ' -t' : ''), {})
+    const context = command.read.exec(runtime + ' force:data:soql:query -q "' + soql + '" --json' + (tooling ? ' -t' : ''), {})
     const data = JSON.parse(context)
     if (data.status === 0) {
         return data.result
@@ -93,7 +88,7 @@ async function computeRule(rule, suite) {
                 target: getFullName(record, rule),
                 violation: rule.message,
                 author: record.LastModifiedBy?.Name || '',
-                date: record.LastModifiedDate?.slice(0, 10) || ''
+                date: record.LastModifiedDate?.slice(0, 10).replaceAll('\n', ' ') || ''
             }
             if (recordError) {
                 testCase.failure('Changed done by ' + (record.LastModifiedBy?.Name || ''))
@@ -111,20 +106,31 @@ async function computeRule(rule, suite) {
     }
 }
 
+
 async function main() {
-    if (process.env.PASSWORD) {
+    if (process.env.PASSWORD || process.env.SFEXP_PASSWORD) {
         await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
     } else {
         try {
-            const context = command.read.call('sfdx', ['force:org:display', '--json'],)
+            const context = command.read.call('sf', ['force:org:display', '--json'],)
             const data = JSON.parse(context)
             conn = new jsforce.Connection({
                 instanceUrl: data.result.instanceUrl,
                 accessToken: data.result.accessToken,
             })
         } catch (e) {
-            console.error(e)
-            exit(1)
+            try {
+                const context = command.read.call('sfdx', ['force:org:display', '--json'],)
+                const data = JSON.parse(context)
+                conn = new jsforce.Connection({
+                    instanceUrl: data.result.instanceUrl,
+                    accessToken: data.result.accessToken,
+                })
+                runtime = 'sfdx'
+            } catch (e) {
+                console.error('You need either sf, sfdx or to provide SFEXP_LOGIN/SFEXP_PASSWORD env variables to connect')
+                exit(1)
+            }
         }
     }
     const filters = (process.env.RULES || '').split(',')

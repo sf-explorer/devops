@@ -4,12 +4,14 @@
     "field": "Name",
     "regex": "^[A-Z][A-Za-z0-9]*$",
     "nameField": "Name",
+    "when": "(IsActive = true)",
     "message": "Flexcards names must be pascal case"
   },
   {
     "sObject": "OmniUiCard",
     "field": "Description",
     "regex": "^.{20,}$",
+    "when": "(IsActive = true)",
     "nameField": "Name",
     "message": "Flexcards must have a description"
   },
@@ -17,6 +19,7 @@
     "sObject": "OmniProcess",
     "field": "Type",
     "regex": "^[a-z][A-Za-z0-9]*$",
+    "when": "(IsActive = true)",
     "nameField": "Name",
     "message": "Omniscript Type should be camel case (for LWC compatibility)"
   },
@@ -24,18 +27,21 @@
     "sObject": "OmniProcess",
     "field": "SubType",
     "regex": "^[A-Z][A-Za-z0-9]*$",
+    "when": "(IsActive = true)",
     "nameField": "Name",
     "message": "Omniscript SubType must be PascalCase"
   },
   {
     "sObject": "OmniProcess",
     "field": "Description",
+    "when": "(IsActive = true)",
     "nameField": "Name",
     "message": "Omniscripts must have a description"
   },
   {
     "sObject": "OmniProcess",
     "field": "Name",
+    "when": "(IsActive = true)",
     "relatedFields": ["(select id from OmniProcessElements)"],
     "computedField": "OmniProcessElements.totalSize",
     "lessThan": 100,
@@ -46,42 +52,42 @@
     "nameField": "Name",
     "regex": "^.{20,}$",
     "field": "Description",
-    "when": "(Type = 'Remote Action' or Type = 'DataRaptor Extract Action')",
+    "when": "OmniProcess.IsActive = true and (Type = 'Remote Action' or Type = 'DataRaptor Extract Action')",
     "message": "Remote action and DataRaptor Actions must have a description"
   },
   {
     "sObject": "OmniProcessElement",
     "field": "Name",
     "regex": "Set[A-Za-z0-9]*$",
-    "when": "(Type = 'Set Values' or Type = 'Set Errors')",
+    "when": "OmniProcess.IsActive = true and (Type = 'Set Values' or Type = 'Set Errors')",
     "message": "Set Values and Set Errors must start with Set+PascalCase"
   },
   {
     "sObject": "OmniProcessElement",
     "field": "Name",
     "regex": "Invoke[A-Za-z0-9]*$",
-    "when": "(Type = 'Remote Action')",
+    "when": "(OmniProcess.IsActive = true and Type = 'Remote Action')",
     "message": "Remote Action must start with 'Invoke+PascalCase'"
   },
   {
     "sObject": "OmniProcessElement",
     "field": "Name",
     "regex": "DRE[A-Za-z0-9]*$",
-    "when": "(Type = 'DataRaptor Extract Action')",
+    "when": "(OmniProcess.IsActive = true and Type = 'DataRaptor Extract Action')",
     "message": "DataRaptor Extract must start with 'DRE+PascalCase'"
   },
   {
     "sObject": "OmniProcessElement",
     "field": "Name",
     "regex": "DRP[A-Za-z0-9]*$",
-    "when": "(Type = 'DataRaptor Post Action')",
+    "when": "(OmniProcess.IsActive = true and Type = 'DataRaptor Post Action')",
     "message": "DataRaptor Post must start with 'DRP+PascalCase'"
   },
   {
     "sObject": "OmniProcessElement",
     "field": "Name",
     "regex": "IP[A-Za-z0-9]*$",
-    "when": "(Type = 'Integration Procedure Action')",
+    "when": "(OmniProcess.IsActive = true and Type = 'Integration Procedure Action')",
     "message": "DataRaptor Extract must start with 'IP+PascalCase'"
   },
   {

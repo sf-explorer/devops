@@ -1,182 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Check rules for EntityDefinition" tests="145" failures="15" errors="0" skipped="0">
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition." name="Maximum 3 record types"/>
-    <testcase classname="EntityDefinition.ContactRole__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.TEST_ContactRole__c" name="A custom object Name must be PascalCase">
-      <failure message="Changed done by Jérémy Duthoit"/>
-    </testcase>
-    <testcase classname="EntityDefinition.ServicePoint__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.Trigger_Action__mdt" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.sObject_Trigger_Sett" name="A custom object Name must be PascalCase">
-      <failure message="Changed done by Stephanie Tinseau"/>
-    </testcase>
-    <testcase classname="EntityDefinition.DML_Finalizer__mdt" name="A custom object Name must be PascalCase">
-      <failure message="Changed done by Stephanie Tinseau"/>
-    </testcase>
-    <testcase classname="EntityDefinition.LoggerTag__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LoggerScenario__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LogEntry__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.Log__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LogEntryTag__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LoggerSettings__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LogEntryEvent__e" name="A custom object Name must be PascalCase">
-      <failure message="Changed done by Stephanie Tinseau"/>
-    </testcase>
-    <testcase classname="EntityDefinition.LogEntryDataMaskRule" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LogEntryTagRule__mdt" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LogStatus__mdt" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LoggerParameter__mdt" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LoggerPlugin__mdt" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LoggerSObjectHandler" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.LoggerScenarioRule__" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.Coordonnees__c" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.ContractParticipant_" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.Knowledge__ka" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.Knowledge__kav" name="A custom object Name must be PascalCase"/>
-    <testcase classname="EntityDefinition.CI_Commit__mdt" name="A custom object Name must be PascalCase">
-      <failure message="Changed done by Amaury Oudin"/>
-    </testcase>
-    <testcase classname="EntityDefinition.Timeline_Configurati" name="A custom object Name must be PascalCase">
-      <failure message="Changed done by Nicolas Despres"/>
-    </testcase>
-    <testcase classname="EntityDefinition.ContactRole__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.TEST_ContactRole__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.ServicePoint__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.Trigger_Action__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.sObject_Trigger_Setting__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.DML_Finalizer__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LoggerTag__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LoggerScenario__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LogEntry__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.Log__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LogEntryTag__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LoggerSettings__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LogEntryEvent__e" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LogEntryDataMaskRule__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LogEntryTagRule__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LogStatus__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LoggerParameter__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LoggerPlugin__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LoggerSObjectHandler__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.LoggerScenarioRule__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.Coordonnees__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.ContractParticipant__c" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.Knowledge__ka" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.Knowledge__kav" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.CI_Commit__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.Timeline_Configuration__mdt" name="Maximum one custom trigger"/>
-    <testcase classname="EntityDefinition.ContactRole__c.Cet objet permet de " name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.TEST_ContactRole__c.Objet de test. Pour " name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.ServicePoint__c.Point de Référence M" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.Trigger_Action__mdt" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.sObject_Trigger_Setting__mdt" name="A custom object Description is required">
-      <failure message="Changed done by Stephanie Tinseau"/>
-    </testcase>
-    <testcase classname="EntityDefinition.DML_Finalizer__mdt" name="A custom object Description is required">
-      <failure message="Changed done by Stephanie Tinseau"/>
-    </testcase>
-    <testcase classname="EntityDefinition.LoggerTag__c.Used by Nebula Logge" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LoggerScenario__c.Used by Nebula Logge" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LogEntry__c.Used by Nebula Logge" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.Log__c.Used by Nebula Logge" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LogEntryTag__c.Used by Nebula Logge" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LoggerSettings__c.Used to configure hi" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LogEntryEvent__e.Platform Event objec" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LogEntryDataMaskRule__mdt.Used to configure re" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LogEntryTagRule__mdt.Used to configure ru" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LogStatus__mdt.Used to configure in" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LoggerParameter__mdt.Used to configure ke" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LoggerPlugin__mdt.Used to configure ad" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LoggerSObjectHandler__mdt.Used to configure Ap" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.LoggerScenarioRule__mdt.Used to configure ru" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.Coordonnees__c" name="A custom object Description is required">
-      <failure message="Changed done by Sabri BENHADDA"/>
-    </testcase>
-    <testcase classname="EntityDefinition.ContractParticipant__c" name="A custom object Description is required">
-      <failure message="Changed done by Nicolas Despres"/>
-    </testcase>
-    <testcase classname="EntityDefinition.Knowledge__ka" name="A custom object Description is required">
-      <failure message="Changed done by Nicolas Despres"/>
-    </testcase>
-    <testcase classname="EntityDefinition.Knowledge__kav" name="A custom object Description is required">
-      <failure message="Changed done by Nicolas Despres"/>
-    </testcase>
-    <testcase classname="EntityDefinition.CI_Commit__mdt" name="A custom object Description is required">
-      <failure message="Changed done by Amaury Oudin"/>
-    </testcase>
-    <testcase classname="EntityDefinition.Timeline_Configuration__mdt.Configures the relat" name="A custom object Description is required"/>
-    <testcase classname="EntityDefinition.ContactRole__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.TEST_ContactRole__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.ServicePoint__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.DML_Finalizer__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.Trigger_Action__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.sObject_Trigger_Setting__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LoggerTag__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LoggerScenario__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LogEntryTag__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LogEntry__c" name="Less than 100 custom fields">
-      <failure message="Changed done by Stephanie Tinseau"/>
-    </testcase>
-    <testcase classname="EntityDefinition.Log__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LoggerSettings__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LogEntryDataMaskRule__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LogEntryTagRule__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LogStatus__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LoggerParameter__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LoggerPlugin__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LoggerSObjectHandler__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LoggerScenarioRule__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.LogEntryEvent__e" name="Less than 100 custom fields">
-      <failure message="Changed done by Stephanie Tinseau"/>
-    </testcase>
-    <testcase classname="EntityDefinition.Coordonnees__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__DocumentTemplateSetting__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.ContractParticipant__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.Knowledge__ka" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.Knowledge__kav" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.CI_Commit__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.Timeline_Configuration__mdt" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__VlocityDataPack__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__VlocityDocuSignTemplate__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__VlocityErrorLogEntry__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__VlocityScheduledJob__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__VlocityTrackingEntry__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__DRBatchQueue__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__DRBulkData__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__Interface_DRGeneric__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__TestResult__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__DREncryption__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__DRWorker__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__TriggerSetup__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__UISettings__c" name="Less than 100 custom fields"/>
-    <testcase classname="EntityDefinition.omnistudio__CardFrameworkConfiguration__c" name="Less than 100 custom fields"/>
-  </testsuite>
+  <testsuite name="Check rules for EntityDefinition" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for CustomField" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for Flow" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for PermissionSet" tests="0" failures="0" errors="0" skipped="0"/>
@@ -185,6 +9,31 @@
   <testsuite name="Check rules for FieldPermissions" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for OmniUiCard" tests="0" failures="0" errors="0" skipped="0"/>
   <testsuite name="Check rules for OmniProcess" tests="0" failures="0" errors="0" skipped="0"/>
-  <testsuite name="Check rules for OmniProcessElement" tests="0" failures="0" errors="0" skipped="0"/>
+  <testsuite name="Check rules for OmniProcessElement" tests="8" failures="8" errors="0" skipped="0">
+    <testcase classname="OmniProcessElement.IP_SendEmail" name="DataRaptor Extract must start with 'IP+PascalCase'">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="OmniProcessElement.IP_GetPRMrecords" name="DataRaptor Extract must start with 'IP+PascalCase'">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="OmniProcessElement.DR_SaveCaseRaccordement" name="DataRaptor Post must start with 'DRP+PascalCase'">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="OmniProcessElement.DRGetCaseAccountId" name="Remote action and DataRaptor Actions must have a description">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="OmniProcessElement.DRGetCaseDetails" name="Remote action and DataRaptor Actions must have a description">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="OmniProcessElement.DRGetCaseAccountId" name="DataRaptor Extract must start with 'DRE+PascalCase'">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="OmniProcessElement.DRGetCaseDetails" name="DataRaptor Extract must start with 'DRE+PascalCase'">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+    <testcase classname="OmniProcessElement.SVContactEmail" name="Set Values and Set Errors must start with Set+PascalCase">
+      <failure message="Changed done by Stephanie Tinseau"/>
+    </testcase>
+  </testsuite>
   <testsuite name="Check rules for OmniDataTransform" tests="0" failures="0" errors="0" skipped="0"/>
 </testsuites>

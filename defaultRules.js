@@ -143,6 +143,7 @@ const rules = [
         sObject: "Flow",
         field: "Description",
         nameField: "MasterLabel",
+        when: "Status = 'Active'",
         regex: "^.{20,}$",
         tooling: true,
         message: "Flow Description is required (at least 20 chars)"
@@ -263,6 +264,7 @@ Autolaunched Flow:
     {
         sObject: "FieldPermissions",
         nameField: "SobjectType",
+        regex: "$^",
         field: "Field",
         message: "No field level security on Profiles (except System Administrator)",
         goodExample: "Use a permission set instead",
