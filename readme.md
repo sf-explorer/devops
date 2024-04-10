@@ -1,25 +1,29 @@
 # SF Explorer Devops Rules
 
-A set of [declarative rules](./defaultRules.js) allowing to perform simple checks on your orgs with SF Explorer Engine
+A set of declarative rules to validate best practices in your org:
+![report](report.png) 
 
-## Pipeline integration
-Create a file named `.env` with the following content:
-```bash
-SFEXP_LOGIN=XXX # remove it to use SFDX instead
-SFEXP_PASSWORD=XXX # Password+SecurityToken, remove it to use SFDX instead
-LOGINURL=https://login.salesforce.com #or https://test.salesforce.com
-DATE=TODAY  #or 2024-01-01
-RULES=EntityDefinition,CustomField  #specify to only run rules on EntityDefinition and CustomField - remove param to check all rules
-```
+## Pre-requisite
+- nodejs
+- sf or sfdx connected on a default org
 
-Run the command:  
+## Running the rules
+
+Run this command inside your sfdx repository:  
 ```cmd
 npx @sf-explorer/devops.cli
 ```
-The command will generate an output file name `testReport.xml` similar to the one you can find [here](./cli/test-report.xml).
+The command will generate:
+* an xml file named `testReport.xml` similar to the one you can find [here](./cli/test-report.xml)
+* an csv file named `errors.csv`
+* an json file named `errors.json`
 
+## Customize the rules
+You can ignore specific errors with a file named `.sfexplorerignore` (using regex similar to a .gitignore file)
+- ignore an author with @ and the author name
+- ignore a record with its type and target
 
-If you don't provide a username, it will try to connect using `SF` or `SFDX` targeting your default org.
+## Default Rules
 
 ### EntityDefinition
 [A custom object Name must be in english and PascalCase](./Sample%20Rules/EntityDefinition/index.md)  
