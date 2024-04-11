@@ -1,12 +1,12 @@
 const rules = require('./defaultRules')
 const getValue = require('./lib/getValue')
 
-function dateCriteria(sobject){
-    return sobject !== "FieldPermissions" ? "LastModifiedDate" : "SystemModstamp"
+function dateCriteria(sobject) {
+    return sobject !== "FieldPermissions" && sobject !== "FlexiPage" ? "LastModifiedDate" : "SystemModstamp"
 }
 
-function lastUser(sobject){
-    return sobject !== "FieldPermissions" ? ", LastModifiedBy.Name" : ""
+function lastUser(sobject) {
+    return sobject !== "FieldPermissions" && sobject !== "FlexiPage" ? ", LastModifiedBy.Name" : ""
 }
 
 function soqlFromRule(rule, date) {
@@ -33,17 +33,17 @@ ${regex}${goodExample}
 
 `
 
-/**
- * ### Configuration to use
-\`\`\`json
-${JSON.stringify(rule, null, 2)}
-\`\`\`
-
-### SOQL Generated
-\`\`\`sql
-${soqlFromRule(rule, '2024-01-01')}
-\`\`\`
- */
+    /**
+     * ### Configuration to use
+    \`\`\`json
+    ${JSON.stringify(rule, null, 2)}
+    \`\`\`
+    
+    ### SOQL Generated
+    \`\`\`sql
+    ${soqlFromRule(rule, '2024-01-01')}
+    \`\`\`
+     */
 }
 
 
@@ -67,18 +67,18 @@ function passRule(sobject, rule) {
                 return false
             }
         } else {
-            if (typeof data === "string"){
+            if (typeof data === "string") {
                 return pattern.test(data)
             }
             return pattern.test(data.toString())
         }
-    } else if (rule.lessThan ) {
+    } else if (rule.lessThan) {
         if (typeof data === 'number') {
             return data < rule.lessThan
         }
         return data === undefined || data === ''
     } else if (!data) {
-        
+
         return false
     }
     // no specific rule, true if not undefined
