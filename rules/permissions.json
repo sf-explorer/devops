@@ -1,0 +1,39 @@
+[
+  {
+    "sObject": "PermissionSet",
+    "field": "Name",
+    "when": "IsOwnedByProfile = false and NamespacePrefix = null",
+    "message": "Name is following project convention"
+  },
+  {
+    "sObject": "PermissionSet",
+    "field": "Description",
+    "nameField": "Name",
+    "regex": "^.{20,}$",
+    "when": "IsOwnedByProfile = false and NamespacePrefix = null",
+    "message": "Description is required (more than 20 chars)"
+  },
+  {
+    "sObject": "PermissionSetGroup",
+    "nameField": "DeveloperName",
+    "field": "Description",
+    "regex": "^.{20,}$",
+    "message": "PermissionSetGroup must have a description (more than 20 chars)"
+  },
+  {
+    "sObject": "CustomPermission",
+    "nameField": "DeveloperName",
+    "field": "Description",
+    "regex": "^.{20,}$",
+    "message": "CustomPermissions must have a description"
+  },
+  {
+    "sObject": "FieldPermissions",
+    "nameField": "SobjectType",
+    "regex": "$^",
+    "field": "Field",
+    "message": "No field level security on Profiles (except System Administrator)",
+    "goodExample": "Use a permission set instead",
+    "where": "ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true) and Parent.Profile.Name != 'System Administrator'"
+  }
+]

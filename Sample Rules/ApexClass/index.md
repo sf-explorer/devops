@@ -4,11 +4,10 @@ Field: `Name`
 Regex: `^[A-Z][A-Za-z0-9_]*(Controller|CallIn|CallOut|Test|Helper|Mapping|Mock|TriggerHandler|TestDataFactory|Wrapper|Constant|Batchable|Queuable|Schedulable|EntityManager|ServiceManager|DataManager)$`    
 #### Example
 
-* ActivityTimeline_Controller
-* ActivityTimeline_Controller_Test
-* RetrieveInteractions_ServiceOut
-* RetrieveInteractions_ServiceOut_Mock
-* RetrieveInteractions_ServiceOut_Test
+* ActivityTimelineController
+* ActivityTimelineControllerTest
+* RetrieveInteractionsMapper
+* RetrieveInteractionsMock
   
 
 

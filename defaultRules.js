@@ -1,31 +1,5 @@
 const omnistudio = require("./rules/omnistudio.json")
-const PSetExample = `### For Object/Field pern sets,
-Start with the Object Name, and with the CRUD access provided, and anything special goes in the middle. Like this:
-
-* Account - (R/C/E)
-* Case - (R)
-* Case - Delete Access - No Fields - (R/C/E/D)
-* Contact - General Access - (R/E)
-* Contact - Sensitive Fields Only - (R)
-
-### For System Permissions
-Start each Perm Set with SYS so that their grouped together:
-* SYS - Reports
-* SYS - Dashboards
-* SYS - View Setup
-
-### For App access
-Start with APP:
-* APP - Sales App
-* APP - Service App
-
-### For Tabs:
-* TAB - Accounts Tab
-* TAB - Tasks Tab
-
-### For Apex Class access:
-* APEX - Account LWC Controller
-* APEX - Case Invocable Actions`
+const permissions = require("./rules/permissions.json")
 
 const JSDocExample = `
 Here is an example
@@ -46,11 +20,10 @@ export default class socle360EquipementDetailContrat extends LightningElement {
 `
 
 const ApexGoodExample = `
-* ActivityTimeline_Controller
-* ActivityTimeline_Controller_Test
-* RetrieveInteractions_ServiceOut
-* RetrieveInteractions_ServiceOut_Mock
-* RetrieveInteractions_ServiceOut_Test
+* ActivityTimelineController
+* ActivityTimelineControllerTest
+* RetrieveInteractionsMapper
+* RetrieveInteractionsMock
 `
 
 const ApexExample = `
@@ -168,21 +141,6 @@ Autolaunched Flow:
 - Scheduled: Remind Opportunity Owners`
     },
     {
-        sObject: "PermissionSet",
-        field: "Name",
-        when: "IsOwnedByProfile = false and NamespacePrefix = null",
-        message: "Name is following project convention",
-        goodExample: PSetExample,
-    },
-    {
-        sObject: "PermissionSet",
-        field: "Description",
-        nameField: "Name",
-        regex: "^.{20,}$",
-        when: "IsOwnedByProfile = false and NamespacePrefix = null",
-        message: "Description is required (more than 20 chars)",
-    },
-    {
         sObject: "ApexClass",
         field: "Name",
         when: "NamespacePrefix = null",
@@ -261,17 +219,38 @@ Autolaunched Flow:
         tooling: true,
         message: "An LWC must have a description",
     },
+    ...permissions,
+    ...omnistudio,
     {
-        sObject: "FieldPermissions",
-        nameField: "SobjectType",
-        regex: "$^",
-        field: "Field",
-        message: "No field level security on Profiles (except System Administrator)",
-        goodExample: "Use a permission set instead",
-        where: "ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true) and Parent.Profile.Name != 'System Administrator'"
-    },
-    ...omnistudio
-
+        "sObject": "ExternalString",
+        "field": "Name",
+        "tooling": true,
+        "regex": "^[A-Z][A-Za-z0-9_]*$",
+        "message": "CustomLabel name must be PascalCase"
+      },
+      {
+        "sObject": "FlexiPage",
+        "nameField": "DeveloperName",
+        "field": "Description",
+        "tooling": true,
+        "regex": "^.{20,}$",
+        "message": "LightningRecordPage must have a description"
+      },
+      {
+        "sObject": "StaticResource",
+        "nameField": "Name",
+        "field": "Description",
+        "regex": "^.{20,}$",
+        "message": "StaticResource must have a description"
+      },
+      {
+        "sObject": "CustomApplication",
+        "nameField": "DeveloperName",
+        "field": "Description",
+        "tooling": true,
+        "regex": "^.{20,}$",
+        "message": "CustomApplication must have a description"
+      }
 ]
 
 module.exports = rules
