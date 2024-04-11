@@ -74,6 +74,7 @@ async function computeRule(rule, suite) {
     const soql = soqlFromRule(rule, date)
 
     try {
+        console.log('Checking rule: ' + rule.message)
         const res = await query(soql.replaceAll('\n', ' ').replaceAll("'", "\'"), rule.tooling)
         const errors = res.records.map(record => {
             const ignore = ignoreRecord(record, rule)
@@ -109,6 +110,7 @@ async function computeRule(rule, suite) {
 
 async function main() {
     if (process.env.PASSWORD || process.env.SFEXP_PASSWORD) {
+        runtime = 'jsforce'
         await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
     } else {
         try {
@@ -118,6 +120,8 @@ async function main() {
                 instanceUrl: data.result.instanceUrl,
                 accessToken: data.result.accessToken,
             })
+            console.log('Connected to ' + data.result.alias + ' using sf')
+            runtime = 'sf'
         } catch (e) {
             try {
                 const context = command.read.call('sfdx', ['force:org:display', '--json'],)
@@ -126,6 +130,7 @@ async function main() {
                     instanceUrl: data.result.instanceUrl,
                     accessToken: data.result.accessToken,
                 })
+                console.log('Connected to ' + data.result.alias + ' using sfdx')
                 runtime = 'sfdx'
             } catch (e) {
                 console.error('You need either sf, sfdx or to provide SFEXP_LOGIN/SFEXP_PASSWORD env variables to connect')
