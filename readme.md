@@ -40,10 +40,6 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 [Flow Description is required (at least 20 chars)](./Sample%20Rules/Flow/index.md)  
 [Flow Label must be Short Yet Meaningful](./Sample%20Rules/Flow/index.md)  
 
-### PermissionSet
-[Name is following project convention](./Sample%20Rules/PermissionSet/index.md)  
-[Description is required (more than 20 chars)](./Sample%20Rules/PermissionSet/index.md)  
-
 ### ApexClass
 [An Apex class name must be PascalCase and use a correct Suffix](./Sample%20Rules/ApexClass/index.md)  
 [An ApexClass must follow the best practices](./Sample%20Rules/ApexClass/index.md)  
@@ -56,20 +52,30 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 [An LWC must have an author](./Sample%20Rules/LightningComponentResource/index.md)  
 [An LWC must have a description](./Sample%20Rules/LightningComponentResource/index.md)  
 
+### PermissionSet
+[Name is following project convention](./Sample%20Rules/PermissionSet/index.md)  
+[Description is required (more than 20 chars)](./Sample%20Rules/PermissionSet/index.md)  
+
+### PermissionSetGroup
+[PermissionSetGroup must have a description (more than 20 chars)](./Sample%20Rules/PermissionSetGroup/index.md)  
+
+### CustomPermission
+[CustomPermissions must have a description](./Sample%20Rules/CustomPermission/index.md)  
+
 ### FieldPermissions
 [No field level security on Profiles (except System Administrator)](./Sample%20Rules/FieldPermissions/index.md)  
 
-### Flexcards
+### OmniUiCard
 [Flexcards names must be pascal case](./Sample%20Rules/OmniUiCard/index.md)  
 [Flexcards must have a description](./Sample%20Rules/OmniUiCard/index.md)  
 
-### Omniscript
+### OmniProcess
 [Omniscript Type should be camel case (for LWC compatibility)](./Sample%20Rules/OmniProcess/index.md)  
 [Omniscript SubType must be PascalCase](./Sample%20Rules/OmniProcess/index.md)  
 [Omniscripts must have a description](./Sample%20Rules/OmniProcess/index.md)  
 [Omniscript must have less than 100 elements](./Sample%20Rules/OmniProcess/index.md)  
 
-### Omniscript Elements
+### OmniProcessElement
 [Remote action and DataRaptor Actions must have a description](./Sample%20Rules/OmniProcessElement/index.md)  
 [Set Values and Set Errors must start with Set+PascalCase](./Sample%20Rules/OmniProcessElement/index.md)  
 [Remote Action must start with 'Invoke+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
@@ -77,5 +83,18 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 [DataRaptor Post must start with 'DRP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 [DataRaptor Extract must start with 'IP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 
-### Dataraptors
+### OmniDataTransform
 [DataRaptors must have a description](./Sample%20Rules/OmniDataTransform/index.md)  
+
+### ExternalString
+[CustomLabel name must be PascalCase](./Sample%20Rules/ExternalString/index.md)  
+
+### FlexiPage
+[LightningRecordPage must have a description](./Sample%20Rules/FlexiPage/index.md)  
+
+### StaticResource
+[StaticResource must have a description](./Sample%20Rules/StaticResource/index.md)  
+
+### CustomApplication
+[CustomApplication must have a description](./Sample%20Rules/CustomApplication/index.md)  
+
