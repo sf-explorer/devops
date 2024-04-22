@@ -29,7 +29,7 @@ Regex: `DRP[A-Za-z0-9]*$`
 
 
 
-## DataRaptor Extract must start with 'IP+PascalCase'
+## Integration Procedure must start with 'IP+PascalCase'
 Field: `Name`   
 Regex: `IP[A-Za-z0-9]*$`    
 

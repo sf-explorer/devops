@@ -88,7 +88,7 @@
     "field": "Name",
     "regex": "IP[A-Za-z0-9]*$",
     "when": "(OmniProcess.IsActive = true and Type = 'Integration Procedure Action')",
-    "message": "DataRaptor Extract must start with 'IP+PascalCase'"
+    "message": "Integration Procedure must start with 'IP+PascalCase'"
   },
   {
     "sObject": "OmniDataTransform",

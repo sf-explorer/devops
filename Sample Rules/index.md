@@ -54,7 +54,7 @@
 [Remote Action must start with 'Invoke+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 [DataRaptor Extract must start with 'DRE+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 [DataRaptor Post must start with 'DRP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
-[DataRaptor Extract must start with 'IP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
+[Integration Procedure must start with 'IP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 
 ### OmniDataTransform
 [DataRaptors must have a description](./Sample%20Rules/OmniDataTransform/index.md)  
