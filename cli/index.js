@@ -5,11 +5,22 @@ const jsforce = require('jsforce')
 const { exit } = require('process')
 var builder = require('junit-report-builder')
 const { command, file } = require('@polycuber/script.cli')
+
+const argv = require('yargs/yargs')(process.argv.slice(2))
+    .usage('Usage: $0 [options]')
+    .alias('o', 'target-org')
+    .describe('o', 'Username or alias of the target org. Not required if the `target-org` configuration variable is already set.')
+    .help('h')
+    .alias('h', 'help')
+    .parse();
+
 const { rules,
     soqlFromRule,
     passRule,
     getValue
 } = require("@sf-explorer/devops")
+
+const orgAlias = argv.o ? ` -o ${argv.o}` : ''
 
 require('dotenv').config();
 const LOGIN_URL = process.env.LOGINURL || 'https://test.salesforce.com'
@@ -52,7 +63,7 @@ async function query(soql, tooling) {
         return parent.query(soql)
     }
 
-    const context = command.read.exec(runtime + ' force:data:soql:query -q "' + soql + '" --json' + (tooling ? ' -t' : ''), {})
+    const context = command.read.exec(runtime + ' force:data:soql:query -q "' + soql + '" --json' + (tooling ? ' -t' : '') + orgAlias, {})
     const data = JSON.parse(context)
     if (data.status === 0) {
         return data.result
@@ -114,7 +125,7 @@ async function main() {
         await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
     } else {
         try {
-            const context = command.read.exec('sf force:org:display --json',)
+            const context = command.read.exec(`sf force:org:display --json ${orgAlias}`,)
             const data = JSON.parse(context)
             conn = new jsforce.Connection({
                 instanceUrl: data.result.instanceUrl,
@@ -124,7 +135,7 @@ async function main() {
             runtime = 'sf'
         } catch (e) {
             try {
-                const context = command.read.exec('sfdx force:org:display --json',)
+                const context = command.read.exec(`sfdx force:org:display --json  ${orgAlias}`,)
                 const data = JSON.parse(context)
                 conn = new jsforce.Connection({
                     instanceUrl: data.result.instanceUrl,
@@ -177,4 +188,8 @@ if (file.exists('./.sfexplorerignore')) {
         .filter(rule => rule.indexOf('@') === 0)
 }
 
+
 main()
+
+
+

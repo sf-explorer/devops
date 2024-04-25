@@ -1,6 +1,6 @@
 {
   "name": "@sf-explorer/devops.cli",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Check best practices on your salesforce org",
   "main": "index.js",
   "bin": "index.js",
@@ -27,6 +27,7 @@
     "@sf-explorer/devops": "0.0.21",
     "dotenv": "^16.0.3",
     "jsforce": "^1.11.0",
-    "junit-report-builder": "^3.1.0"
+    "junit-report-builder": "^3.1.0",
+    "yargs": "^17.7.2"
   }
 }
