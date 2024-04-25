@@ -114,7 +114,7 @@ async function main() {
         await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
     } else {
         try {
-            const context = command.read.call('sf', ['force:org:display', '--json'],)
+            const context = command.read.exec('sf force:org:display --json',)
             const data = JSON.parse(context)
             conn = new jsforce.Connection({
                 instanceUrl: data.result.instanceUrl,
@@ -124,7 +124,7 @@ async function main() {
             runtime = 'sf'
         } catch (e) {
             try {
-                const context = command.read.call('sfdx', ['force:org:display', '--json'],)
+                const context = command.read.exec('sfdx force:org:display --json',)
                 const data = JSON.parse(context)
                 conn = new jsforce.Connection({
                     instanceUrl: data.result.instanceUrl,
