@@ -8,8 +8,15 @@ const { command, file } = require('@polycuber/script.cli')
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
     .usage('Usage: $0 [options]')
+    .alias('d', 'from-date')
+    .describe('d', 'From date execution, in format YYYY-MM-DD')
+    .default('d', '2024-04-01')
+    .alias('e', 'exclude-author')
+    .describe('e', 'Exclude specified author, in format @name, multiple values are supported')
     .alias('o', 'target-org')
     .describe('o', 'Username or alias of the target org. Not required if the `target-org` configuration variable is already set.')
+    .alias('r', 'print-rules')
+    .describe('r', 'Print rules')
     .help('h')
     .alias('h', 'help')
     .parse();
@@ -81,7 +88,8 @@ function ignoreRecord(record, rule) {
 }
 
 async function computeRule(rule, suite) {
-    const date = process.env.DATE === 'TODAY' ? new Date().toISOString().slice(0, 10) : process.env.DATE
+    const fromDate = process.env.DATE || argv.d
+    const date = fromDate === 'TODAY' ? new Date().toISOString().slice(0, 10) : fromDate
     const soql = soqlFromRule(rule, date)
 
     try {
@@ -184,12 +192,29 @@ if (file.exists('./.sfexplorerignore')) {
         .filter(rule => rule.indexOf('@') !== 0)
         .filter(rule => rule.replaceAll(' ', '') !== '')
 
+    
+
     ignoreAuthorList = ignore.split('\n')
         .filter(rule => rule.indexOf('@') === 0)
 }
 
+if (argv.e) {
+    if (typeof argv.e === 'string'){
+        ignoreAuthorList.push(argv.e)
+    } else if (Array.isArray(argv.e)){
+        ignoreAuthorList = [...ignoreAuthorList, ...argv.e]
+    }
+}
 
-main()
+console.log(argv.d)
+
+if (argv.r){
+    console.log(rules)
+} else {
+    main()
+}
+
+
 
 
 
