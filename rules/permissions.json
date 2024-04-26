@@ -34,6 +34,6 @@
     "field": "Field",
     "message": "No field level security on Profiles (except System Administrator)",
     "goodExample": "Use a permission set instead",
-    "where": "ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true) and Parent.Profile.Name != 'System Administrator'"
+    "when": "ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true) and Parent.Profile.Name != 'System Administrator'"
   }
 ]

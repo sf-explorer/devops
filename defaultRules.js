@@ -227,30 +227,31 @@ Autolaunched Flow:
         "tooling": true,
         "regex": "^[A-Z][A-Za-z0-9_]*$",
         "message": "CustomLabel name must be PascalCase"
-      },
-      {
+    },
+    {
         "sObject": "FlexiPage",
         "nameField": "DeveloperName",
         "field": "Description",
         "tooling": true,
         "regex": "^.{20,}$",
         "message": "LightningRecordPage must have a description"
-      },
-      {
+    },
+    {
         "sObject": "StaticResource",
         "nameField": "Name",
         "field": "Description",
+        when: "NamespacePrefix=''",
         "regex": "^.{20,}$",
         "message": "StaticResource must have a description"
-      },
-      {
+    },
+    {
         "sObject": "CustomApplication",
         "nameField": "DeveloperName",
         "field": "Description",
         "tooling": true,
         "regex": "^.{20,}$",
         "message": "CustomApplication must have a description"
-      }
+    }
 ]
 
 module.exports = rules
