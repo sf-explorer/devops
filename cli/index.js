@@ -15,6 +15,8 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     .describe('e', 'Exclude specified author, in format @name, multiple values are supported')
     .alias('o', 'target-org')
     .describe('o', 'Username or alias of the target org. Not required if the `target-org` configuration variable is already set.')
+    .alias('u', ' sfdx-url')
+    .describe('u', 'sfdx auth url')
     .alias('r', 'print-rules')
     .describe('r', 'Print rules')
     .help('h')
@@ -27,7 +29,7 @@ const { rules,
     getValue
 } = require("@sf-explorer/devops")
 
-const orgAlias = argv.o ? ` -o ${argv.o}` : ''
+let orgAlias = argv.o ? ` -o ${argv.o}` : ''
 
 require('dotenv').config();
 const LOGIN_URL = process.env.LOGINURL || 'https://test.salesforce.com'
@@ -38,6 +40,7 @@ const version = '60.0'
 var conn = new jsforce.Connection({ loginUrl: LOGIN_URL, version })
 var ignoreList = []
 var ignoreAuthorList = []
+var authUrls = []
 let runtime = 'sf'
 
 const rulesByObject = rules.reduce((prev, cur) => {
@@ -87,7 +90,7 @@ function ignoreRecord(record, rule) {
     })
 }
 
-async function computeRule(rule, suite) {
+async function computeRule(rule, suite, orgName) {
     const fromDate = process.env.DATE || argv.d
     const date = fromDate === 'TODAY' ? new Date().toISOString().slice(0, 10) : fromDate
     const soql = soqlFromRule(rule, date)
@@ -108,10 +111,10 @@ async function computeRule(rule, suite) {
                 target: getFullName(record, rule),
                 violation: rule.message,
                 author: record.LastModifiedBy?.Name || '',
-                date: record.LastModifiedDate?.slice(0, 10).replaceAll('\n', ' ') || ''
+                date: (record.LastModifiedDate || record.SystemModstamp)?.slice(0, 10).replaceAll('\n', ' ') || ''
             }
             if (recordError) {
-                testCase.failure('Changed done by ' + (record.LastModifiedBy?.Name || ''))
+                testCase.failure((record.LastModifiedBy?.Name ? `Changed done by ${record.LastModifiedBy?.Name}` : '') + (orgName ? ` on ${orgName}` : ''))
 
             }
             return recordError
@@ -127,29 +130,29 @@ async function computeRule(rule, suite) {
 }
 
 
-async function main() {
+async function scanOrg(url) {
     if (process.env.PASSWORD || process.env.SFEXP_PASSWORD) {
         runtime = 'jsforce'
         await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
     } else {
         try {
-            const context = command.read.exec(`sf force:org:display --json ${orgAlias}`,)
-            const data = JSON.parse(context)
-            conn = new jsforce.Connection({
-                instanceUrl: data.result.instanceUrl,
-                accessToken: data.result.accessToken,
-            })
-            console.log('Connected to ' + data.result.alias + ' using sf')
+            if (url) {
+                file.write.text('./sfdxAuthUrl.txt', url)
+                command.read.exec('sf org login sfdx-url --sfdx-url-file sfdxAuthUrl.txt -a org')
+                orgAlias = ' -o org'
+                console.log('***  Connected using sf on' + url.split("@").pop() + ' ***')
+            } else {
+                command.read.exec(`sf force:org:display --json ${orgAlias}`,)
+                console.log('Connected using sf')
+            }
+
+
             runtime = 'sf'
         } catch (e) {
+
             try {
-                const context = command.read.exec(`sfdx force:org:display --json  ${orgAlias}`,)
-                const data = JSON.parse(context)
-                conn = new jsforce.Connection({
-                    instanceUrl: data.result.instanceUrl,
-                    accessToken: data.result.accessToken,
-                })
-                console.log('Connected to ' + data.result.alias + ' using sfdx')
+                command.read.exec(`sfdx force:org:display --json  ${orgAlias}`,)
+                console.log('Connected using sfdx')
                 runtime = 'sfdx'
             } catch (e) {
                 console.error('You need either sf, sfdx or to provide SFEXP_LOGIN/SFEXP_PASSWORD env variables to connect')
@@ -162,12 +165,30 @@ async function main() {
     const promises = rules
         .filter(rule => (filters.length === 1 && filters[0] === '') || filters.includes(rule.sObject))
         .map((rule) => {
-            return computeRule(rule, rulesByObject[rule.sObject])
+            return computeRule(rule, rulesByObject[rule.sObject], url?.split("@").pop())
         })
-
     const computedRules = await Promise.all(promises)
 
-    const allErrors = [].concat.apply([], computedRules)
+    return [].concat.apply([], computedRules)
+
+}
+
+
+async function main() {
+    let allErrors = []
+
+    if (file.exists('.sfdxAuthUrls')) {
+        authUrls = file.read.text('.sfdxAuthUrls')?.split('\n')
+    }
+
+    if (authUrls.length > 0) {
+        for (const org of authUrls) {
+            const res = await scanOrg(org)
+            allErrors = [...allErrors, ...res.map(item => ({ ...item, org: org.split('@').pop() }))]
+        }
+    } else {
+        allErrors = await scanOrg()
+    }
 
     const nbErrors = allErrors.length
     var csv_string = allErrors.map(error => Object.values(error).join(',')).join('\n')
@@ -192,23 +213,31 @@ if (file.exists('./.sfexplorerignore')) {
         .filter(rule => rule.indexOf('@') !== 0)
         .filter(rule => rule.replaceAll(' ', '') !== '')
 
-    
+
 
     ignoreAuthorList = ignore.split('\n')
         .filter(rule => rule.indexOf('@') === 0)
 }
 
 if (argv.e) {
-    if (typeof argv.e === 'string'){
+    if (typeof argv.e === 'string') {
         ignoreAuthorList.push(argv.e)
-    } else if (Array.isArray(argv.e)){
+    } else if (Array.isArray(argv.e)) {
         ignoreAuthorList = [...ignoreAuthorList, ...argv.e]
     }
 }
 
-console.log(argv.d)
 
-if (argv.r){
+
+if (argv.u) {
+    if (typeof argv.u === 'string') {
+        authUrls.push(argv.u)
+    } else if (Array.isArray(argv.u)) {
+        authUrls = [...authUrls, ...argv.u]
+    }
+}
+
+if (argv.r) {
     console.log(rules)
 } else {
     main()

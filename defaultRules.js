@@ -228,14 +228,14 @@ Autolaunched Flow:
         "regex": "^[A-Z][A-Za-z0-9_]*$",
         "message": "CustomLabel name must be PascalCase"
     },
-    {
+   /* {
         "sObject": "FlexiPage",
         "nameField": "DeveloperName",
         "field": "Description",
         "tooling": true,
         "regex": "^.{20,}$",
         "message": "LightningRecordPage must have a description"
-    },
+    },*/
     {
         "sObject": "StaticResource",
         "nameField": "Name",

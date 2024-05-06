@@ -1,4 +1,6 @@
-.env
+.env*
 test-report.xml
 .sfexplorerignore
 errors.*
+.sfdxAuthUrls
+sfdxAuthUrl.txt
