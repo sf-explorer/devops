@@ -81,7 +81,7 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 [Remote Action must start with 'Invoke+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 [DataRaptor Extract must start with 'DRE+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 [DataRaptor Post must start with 'DRP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
-[DataRaptor Extract must start with 'IP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
+[Integration Procedure must start with 'IP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 
 ### OmniDataTransform
 [DataRaptors must have a description](./Sample%20Rules/OmniDataTransform/index.md)  
@@ -89,12 +89,16 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 ### ExternalString
 [CustomLabel name must be PascalCase](./Sample%20Rules/ExternalString/index.md)  
 
-### FlexiPage
-[LightningRecordPage must have a description](./Sample%20Rules/FlexiPage/index.md)  
-
 ### StaticResource
 [StaticResource must have a description](./Sample%20Rules/StaticResource/index.md)  
 
 ### CustomApplication
 [CustomApplication must have a description](./Sample%20Rules/CustomApplication/index.md)  
+
+### ValidationRule
+[ValidationRule must have a description](./Sample%20Rules/ValidationRule/index.md)  
+
+### WebLink
+[Custom Button must have a description](./Sample%20Rules/WebLink/index.md)  
+[Custom Button name must be pascal case](./Sample%20Rules/WebLink/index.md)  
 

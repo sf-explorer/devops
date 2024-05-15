@@ -3,7 +3,7 @@ example/.env
 rules/index.md
 cli/.env*
 cli/.sfdxAuthUrls
-cli/sfdxAuthUrl.txt
+cli/sfdxAuthUrl*.txt
 devops/.sfdx/indexes/lwc/custom-components.json
 .sfdx
 sfdx/test-report.xml 

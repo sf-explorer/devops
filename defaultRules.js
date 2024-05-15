@@ -240,7 +240,7 @@ Autolaunched Flow:
         "sObject": "StaticResource",
         "nameField": "Name",
         "field": "Description",
-        when: "NamespacePrefix=''",
+        "when": "NamespacePrefix=''",
         "regex": "^.{20,}$",
         "message": "StaticResource must have a description"
     },
@@ -251,7 +251,33 @@ Autolaunched Flow:
         "tooling": true,
         "regex": "^.{20,}$",
         "message": "CustomApplication must have a description"
-    }
+    },
+    {
+        "sObject": "ValidationRule",
+        "nameField": "ValidationName",
+        "field": "Description",
+        "tooling": true,
+        "when": "NamespacePrefix=''",
+        "regex": "^.{20,}$",
+        "message": "ValidationRule must have a description"
+    },
+    {
+        "sObject": "WebLink",
+        "nameField": "Name",
+        "field": "Description",
+        "tooling": true,
+        "when": "NamespacePrefix=''",
+        "regex": "^.{20,}$",
+        "message": "Custom Button must have a description"
+    },
+    {
+        "sObject": "WebLink",
+        "field": "Name",
+        "tooling": true,
+        "when": "NamespacePrefix=''",
+        regex: "^[A-Z][A-Za-z0-9]*$",
+        "message": "Custom Button name must be pascal case"
+    },
 ]
 
 module.exports = rules

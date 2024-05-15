@@ -3,4 +3,4 @@ test-report.xml
 .sfexplorerignore
 errors.*
 .sfdxAuthUrls
-sfdxAuthUrl.txt
+sfdxAuthUrl*.txt
