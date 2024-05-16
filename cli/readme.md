@@ -24,11 +24,11 @@ Options:
       --version         Show version number                            [boolean]
   -d, --from-date       From date execution, in format YYYY-MM-DD
                                                          [default: "2024-04-01"]
-  -e, --exclude-author  Exclude specified author, in format @name, multiple
+  -e, --exclude         Exclude specified author, in format @name, multiple
                         values are supported
   -o, --target-org      Username or alias of the target org. Not required if the
                         `target-org` configuration variable is already set.
-  -u, -- sfdx-url       sfdx auth url
+  -u, --sfdx-url       sfdx auth url
   -r, --print-rules     Print rules
   -h, --help            Show help                                      [boolean]
 ```

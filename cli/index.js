@@ -11,11 +11,11 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     .alias('d', 'from-date')
     .describe('d', 'From date execution, in format YYYY-MM-DD')
     .default('d', '2024-04-01')
-    .alias('e', 'exclude-author')
-    .describe('e', 'Exclude specified author, in format @name, multiple values are supported')
+    .alias('e', 'exclude')
+    .describe('e', 'Exclude specified patterns or authors, in format @name for authors, multiple values are supported')
     .alias('o', 'target-org')
     .describe('o', 'Username or alias of the target org. Not required if the `target-org` configuration variable is already set.')
-    .alias('u', ' sfdx-url')
+    .alias('u', 'sfdx-url')
     .describe('u', 'sfdx auth url')
     .alias('r', 'print-rules')
     .describe('r', 'Print rules')
@@ -105,6 +105,9 @@ async function computeRule(rule, suite, orgName) {
             var testCase = suite.testCase()
                 .className(rule.sObject + '.' + getFullName(record, rule))
                 .name(rule.message)
+                .property('author', record.LastModifiedBy?.Name || '')
+                .property('date', record.LastModifiedDate || record.SystemModstamp || '')
+                .file(record.LastModifiedBy?.Name || '')
 
             const recordError = passRule(record, rule) ? undefined : {
                 scope: rule.sObject,
@@ -221,9 +224,15 @@ if (file.exists('./.sfexplorerignore')) {
 
 if (argv.e) {
     if (typeof argv.e === 'string') {
-        ignoreAuthorList.push(argv.e)
+        if (argv.e.indexOf('@')===0) {
+            ignoreAuthorList.push(argv.e)
+        } else {
+            ignoreList.push(argv.e)
+        }
+        
     } else if (Array.isArray(argv.e)) {
-        ignoreAuthorList = [...ignoreAuthorList, ...argv.e]
+        ignoreAuthorList = [...ignoreAuthorList, ...argv.e.filter(rule => rule.indexOf('@') === 0)]
+        ignoreList = [...ignoreList, ...argv.e.filter(rule => rule.indexOf('@') !== 0)]
     }
 }
 

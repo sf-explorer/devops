@@ -1,6 +1,6 @@
 {
   "name": "@sf-explorer/devops.cli",
-  "version": "1.0.25",
+  "version": "1.0.28",
   "description": "Check best practices on your salesforce org",
   "main": "index.js",
   "bin": "index.js",
