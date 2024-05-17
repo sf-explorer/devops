@@ -194,9 +194,11 @@ async function main() {
     }
 
     const nbErrors = allErrors.length
-    var csv_string = allErrors.map(error => Object.values(error).join(',')).join('\n')
+    var csv_string = allErrors.map(error => Object.values(error)
+        .map(value => value.replaceAll(',', ' ').replaceAll('\n', ' '))
+        .join(',')).join('\n')
     file.write.json('errors.json', allErrors)
-    file.write.text('errors.csv', csv_string)
+    file.write.text('errors.csv', 'scope,target,violation,author,date\n' + csv_string)
 
     builder.writeTo('test-report.xml')
     if (nbErrors > 0) {
@@ -224,12 +226,12 @@ if (file.exists('./.sfexplorerignore')) {
 
 if (argv.e) {
     if (typeof argv.e === 'string') {
-        if (argv.e.indexOf('@')===0) {
+        if (argv.e.indexOf('@') === 0) {
             ignoreAuthorList.push(argv.e)
         } else {
             ignoreList.push(argv.e)
         }
-        
+
     } else if (Array.isArray(argv.e)) {
         ignoreAuthorList = [...ignoreAuthorList, ...argv.e.filter(rule => rule.indexOf('@') === 0)]
         ignoreList = [...ignoreList, ...argv.e.filter(rule => rule.indexOf('@') !== 0)]
