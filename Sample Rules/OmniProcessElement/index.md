@@ -1,7 +1,7 @@
 # OmniProcessElement
 ## Remote action and DataRaptor Actions must have a description
 Field: `Description`   
-Regex: `^.{20,}$`    
+Regex: `^.{10,}$`    
 
 
 

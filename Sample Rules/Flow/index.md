@@ -1,7 +1,7 @@
 # Flow
-## Flow Description is required (at least 20 chars)
+## Flow Description is required (at least 10 chars)
 Field: `Description`   
-Regex: `^.{20,}$`    
+Regex: `^.{10,}$`    
 
 
 

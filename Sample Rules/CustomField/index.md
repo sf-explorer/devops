@@ -6,8 +6,8 @@ Regex: `^[A-Z][A-Za-z0-9]*$`
 PhoneNumber  
 
 
-## Custom Fields must have a Description (at least 20 chars)
+## Custom Fields must have a Description (at least 10 chars)
 Field: `Description`   
-Regex: `^.{20,}$`    
+Regex: `^.{10,}$`    
 
 

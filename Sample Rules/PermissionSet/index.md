@@ -4,8 +4,8 @@ Field: `Name`
 
 
 
-## Description is required (more than 20 chars)
+## Description is required (more than 10 chars)
 Field: `Description`   
-Regex: `^.{20,}$`    
+Regex: `^.{10,}$`    
 
 

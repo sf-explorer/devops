@@ -1,6 +1,6 @@
 # PermissionSetGroup
-## PermissionSetGroup must have a description (more than 20 chars)
+## PermissionSetGroup must have a description (more than 10 chars)
 Field: `Description`   
-Regex: `^.{20,}$`    
+Regex: `^.{10,}$`    
 
 

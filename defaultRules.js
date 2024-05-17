@@ -56,10 +56,10 @@ const rules = [
     {
         sObject: "EntityDefinition",
         field: "Description",
-        regex: "^.{20,}$",
+        regex: "^.{10,}$",
         nameField: "QualifiedApiName",
         message: "A custom object Description is required",
-        goodExample: "More than 20 chars",
+        goodExample: "More than 10 chars",
         tooling: true,
         when: "PublisherId = '<local>'",
     },
@@ -108,18 +108,18 @@ const rules = [
         nameField: "DeveloperName",
         when: "ManageableState = 'unmanaged'",
         field: "Description",
-        regex: "^.{20,}$",
+        regex: "^.{10,}$",
         tooling: true,
-        message: "Custom Fields must have a Description (at least 20 chars)"
+        message: "Custom Fields must have a Description (at least 10 chars)"
     },
     {
         sObject: "Flow",
         field: "Description",
         nameField: "MasterLabel",
         when: "Status = 'Active'",
-        regex: "^.{20,}$",
+        regex: "^.{10,}$",
         tooling: true,
-        message: "Flow Description is required (at least 20 chars)"
+        message: "Flow Description is required (at least 10 chars)"
     },
     {
         sObject: "Flow",
@@ -233,7 +233,7 @@ Autolaunched Flow:
         "nameField": "DeveloperName",
         "field": "Description",
         "tooling": true,
-        "regex": "^.{20,}$",
+        "regex": "^.{10,}$",
         "message": "LightningRecordPage must have a description"
     },*/
     {
@@ -241,7 +241,7 @@ Autolaunched Flow:
         "nameField": "Name",
         "field": "Description",
         "when": "NamespacePrefix=''",
-        "regex": "^.{20,}$",
+        "regex": "^.{10,}$",
         "message": "StaticResource must have a description"
     },
     {
@@ -249,7 +249,7 @@ Autolaunched Flow:
         "nameField": "DeveloperName",
         "field": "Description",
         "tooling": true,
-        "regex": "^.{20,}$",
+        "regex": "^.{10,}$",
         "message": "CustomApplication must have a description"
     },
     {
@@ -258,7 +258,7 @@ Autolaunched Flow:
         "field": "Description",
         "tooling": true,
         "when": "NamespacePrefix=''",
-        "regex": "^.{20,}$",
+        "regex": "^.{10,}$",
         "message": "ValidationRule must have a description"
     },
     {
@@ -267,7 +267,7 @@ Autolaunched Flow:
         "field": "Description",
         "tooling": true,
         "when": "NamespacePrefix=''",
-        "regex": "^.{20,}$",
+        "regex": "^.{10,}$",
         "message": "Custom Button must have a description"
     },
     {

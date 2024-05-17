@@ -1,7 +1,7 @@
 # WebLink
 ## Custom Button must have a description
 Field: `Description`   
-Regex: `^.{20,}$`    
+Regex: `^.{10,}$`    
 
 
 

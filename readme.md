@@ -34,10 +34,10 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 
 ### CustomField
 [A CustomField API Name must be in english and PascalCase](./Sample%20Rules/CustomField/index.md)  
-[Custom Fields must have a Description (at least 20 chars)](./Sample%20Rules/CustomField/index.md)  
+[Custom Fields must have a Description (at least 10 chars)](./Sample%20Rules/CustomField/index.md)  
 
 ### Flow
-[Flow Description is required (at least 20 chars)](./Sample%20Rules/Flow/index.md)  
+[Flow Description is required (at least 10 chars)](./Sample%20Rules/Flow/index.md)  
 [Flow Label must be Short Yet Meaningful](./Sample%20Rules/Flow/index.md)  
 
 ### ApexClass
@@ -54,10 +54,10 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 
 ### PermissionSet
 [Name is following project convention](./Sample%20Rules/PermissionSet/index.md)  
-[Description is required (more than 20 chars)](./Sample%20Rules/PermissionSet/index.md)  
+[Description is required (more than 10 chars)](./Sample%20Rules/PermissionSet/index.md)  
 
 ### PermissionSetGroup
-[PermissionSetGroup must have a description (more than 20 chars)](./Sample%20Rules/PermissionSetGroup/index.md)  
+[PermissionSetGroup must have a description (more than 10 chars)](./Sample%20Rules/PermissionSetGroup/index.md)  
 
 ### CustomPermission
 [CustomPermissions must have a description](./Sample%20Rules/CustomPermission/index.md)  
@@ -101,4 +101,3 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 ### WebLink
 [Custom Button must have a description](./Sample%20Rules/WebLink/index.md)  
 [Custom Button name must be pascal case](./Sample%20Rules/WebLink/index.md)  
-

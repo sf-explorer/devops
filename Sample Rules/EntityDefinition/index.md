@@ -8,9 +8,9 @@ InsurancePolicy
 
 ## A custom object Description is required
 Field: `Description`   
-Regex: `^.{20,}$`    
+Regex: `^.{10,}$`    
 #### Example
-More than 20 chars  
+More than 10 chars  
 
 
 ## Less than 100 custom fields

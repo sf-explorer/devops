@@ -10,7 +10,7 @@
   {
     "sObject": "OmniUiCard",
     "field": "Description",
-    "regex": "^.{20,}$",
+    "regex": "^.{10,}$",
     "when": "(IsActive = true)",
     "nameField": "Name",
     "message": "Flexcards must have a description"
@@ -50,7 +50,7 @@
   {
     "sObject": "OmniProcessElement",
     "nameField": "Name",
-    "regex": "^.{20,}$",
+    "regex": "^.{10,}$",
     "field": "Description",
     "when": "OmniProcess.IsActive = true and (Type = 'Remote Action' or Type = 'DataRaptor Extract Action')",
     "message": "Remote action and DataRaptor Actions must have a description"
@@ -94,7 +94,7 @@
     "sObject": "OmniDataTransform",
     "nameField": "Name",
     "field": "Description",
-    "regex": "^.{20,}$",
+    "regex": "^.{10,}$",
     "message": "DataRaptors must have a description"
   }
 ]

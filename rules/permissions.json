@@ -9,22 +9,22 @@
     "sObject": "PermissionSet",
     "field": "Description",
     "nameField": "Name",
-    "regex": "^.{20,}$",
+    "regex": "^.{10,}$",
     "when": "IsOwnedByProfile = false and NamespacePrefix = null",
-    "message": "Description is required (more than 20 chars)"
+    "message": "Description is required (more than 10 chars)"
   },
   {
     "sObject": "PermissionSetGroup",
     "nameField": "DeveloperName",
     "field": "Description",
-    "regex": "^.{20,}$",
-    "message": "PermissionSetGroup must have a description (more than 20 chars)"
+    "regex": "^.{10,}$",
+    "message": "PermissionSetGroup must have a description (more than 10 chars)"
   },
   {
     "sObject": "CustomPermission",
     "nameField": "DeveloperName",
     "field": "Description",
-    "regex": "^.{20,}$",
+    "regex": "^.{10,}$",
     "message": "CustomPermissions must have a description"
   },
   {
