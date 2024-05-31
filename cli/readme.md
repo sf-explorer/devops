@@ -1,20 +1,16 @@
 
 # @sf-explorer/devops.cli
 
+
+## Pre-requisite
+- nodejs
+- sf or sfdx connected on a default org
+
 ## Pipeline integration
-Create a file named `.env` with the following content:
-```bash
-SFEXP_LOGIN=XXX # remove it to use SFDX instead
-SFEXP_PASSWORD=XXX # Password+SecurityToken, remove it to use SFDX instead
-LOGINURL=https://login.salesforce.com #or https://test.salesforce.com
-DATE=TODAY  #or 2024-01-01
-RULES=EntityDefinition,CustomField  #specify to only run rules on EntityDefinition and CustomField - remove param to check all rules
-```
-To connect with SFDX, don't use the `SFEXP_LOGIN`/`SFEXP_PASSWORD` env var.
 
 Run the command:  
 ```cmd
-npx @sf-explorer/devops.cli -o myOrg -d 2024-03-01 --exclude-author '@Sys admin'
+npx @sf-explorer/devops.cli -o myOrg -d 2024-03-01 --exclude '@Sys admin' --exclude 'CustomField.*_del'
 ```
 The command will generate an output file name `testReport.xml` similar to the one you can find [here](./cli/test-report.xml).
 

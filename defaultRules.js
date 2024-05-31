@@ -257,7 +257,7 @@ Autolaunched Flow:
         "nameField": "ValidationName",
         "field": "Description",
         "tooling": true,
-        "when": "NamespacePrefix=''",
+        "when": "NamespacePrefix='' and Active=true",
         "regex": "^.{10,}$",
         "message": "ValidationRule must have a description"
     },
