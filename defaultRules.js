@@ -144,7 +144,7 @@ Autolaunched Flow:
         sObject: "ApexClass",
         field: "Name",
         when: "NamespacePrefix = null",
-        regex: "^[A-Z][A-Za-z0-9_]*(Controller|CallIn|CallOut|Test|Helper|Mapping|Mock|TriggerHandler|TestDataFactory|Wrapper|Constant|Batchable|Queuable|Schedulable|EntityManager|ServiceManager|DataManager)$",
+        regex: "^([A-Z][A-Za-z0-9_]*(Controller|CallIn|CallOut|Test|Helper|Mapping|Mock|TriggerHandler|Wrapper|Batchable|Queuable|Schedulable|EntityManager|ServiceManager|DataManager))|(TestDataFactory|Constant)$",
         message: "An Apex class name must be PascalCase and use a correct Suffix",
         goodExample: ApexGoodExample,
     },
