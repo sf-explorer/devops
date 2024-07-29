@@ -1,6 +1,6 @@
 # ExternalString
-## CustomLabel name must be PascalCase
+## CustomLabel name must be camelCase
 Field: `Name`   
-Regex: `^[A-Z][A-Za-z0-9_]*$`    
+Regex: `^[a-z][A-Za-z0-9_]*$`    
 
 

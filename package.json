@@ -1,5 +1,5 @@
 {
-  "version": "0.0.29",
+  "version": "0.0.31",
   "name": "@sf-explorer/devops",
   "description": "Devops rules",
   "repository": {
@@ -9,7 +9,10 @@
   "keywords": [
     "soql",
     "salesforce",
-    "devops"
+    "devops",
+    "cli",
+    "best practices",
+    "quality"
   ],
   "author": "ndespres@gmail.com",
   "license": "MIT",
@@ -19,8 +22,7 @@
   "homepage": "https://github.com/sf-explorer/devops#readme",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "dependencies": {
     "comment-parser": "^1.4.1"

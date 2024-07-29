@@ -10,7 +10,7 @@
     "field": "Description",
     "nameField": "Name",
     "regex": "^.{10,}$",
-    "when": "IsOwnedByProfile = false and NamespacePrefix = null",
+    "when": "IsOwnedByProfile = false and NamespacePrefix = null and Type != 'Group'",
     "message": "Description is required (more than 10 chars)"
   },
   {

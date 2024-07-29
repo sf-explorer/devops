@@ -1,5 +1,5 @@
 # OmniProcessElement
-## Remote action and DataRaptor Actions must have a description
+## Remote action and Data mapper Actions must have a description
 Field: `Description`   
 Regex: `^.{10,}$`    
 
@@ -17,13 +17,13 @@ Regex: `Invoke[A-Za-z0-9]*$`
 
 
 
-## DataRaptor Extract must start with 'DRE+PascalCase'
+## Data Mapper Extract must start with 'DRE+PascalCase'
 Field: `Name`   
 Regex: `DRE[A-Za-z0-9]*$`    
 
 
 
-## DataRaptor Post must start with 'DRP+PascalCase'
+## Data Mapper Post must start with 'DRP+PascalCase'
 Field: `Name`   
 Regex: `DRP[A-Za-z0-9]*$`    
 

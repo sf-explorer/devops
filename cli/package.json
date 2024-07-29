@@ -1,6 +1,6 @@
 {
   "name": "@sf-explorer/devops.cli",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "Check best practices on your salesforce org",
   "main": "index.js",
   "bin": "index.js",
@@ -24,7 +24,7 @@
   "homepage": "https://github.com/sf-explorer/devops#readme",
   "dependencies": {
     "@polycuber/script.cli": "^1.0.5",
-    "@sf-explorer/devops": "0.0.29",
+    "@sf-explorer/devops": "0.0.31",
     "dotenv": "^16.0.3",
     "jsforce": "^1.11.0",
     "junit-report-builder": "^3.1.0",

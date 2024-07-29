@@ -1,5 +1,5 @@
 # OmniDataTransform
-## DataRaptors must have a description
+## Data mappers must have a description
 Field: `Description`   
 Regex: `^.{10,}$`    
 

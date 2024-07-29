@@ -1,7 +1,7 @@
 # OmniProcess
-## Omniscript Type should be camel case (for LWC compatibility)
+## Omniscript Type should be pascal case
 Field: `Type`   
-Regex: `^[a-z][A-Za-z0-9]*$`    
+Regex: `^[A-Z][A-Za-z0-9]*$`    
 
 
 

@@ -18,10 +18,10 @@
   {
     "sObject": "OmniProcess",
     "field": "Type",
-    "regex": "^[a-z][A-Za-z0-9]*$",
+    "regex": "^[A-Z][A-Za-z0-9]*$",
     "when": "(IsActive = true)",
     "nameField": "Name",
-    "message": "Omniscript Type should be camel case (for LWC compatibility)"
+    "message": "Omniscript Type should be pascal case"
   },
   {
     "sObject": "OmniProcess",
@@ -53,7 +53,7 @@
     "regex": "^.{10,}$",
     "field": "Description",
     "when": "OmniProcess.IsActive = true and (Type = 'Remote Action' or Type = 'DataRaptor Extract Action')",
-    "message": "Remote action and DataRaptor Actions must have a description"
+    "message": "Remote action and Data mapper Actions must have a description"
   },
   {
     "sObject": "OmniProcessElement",
@@ -74,14 +74,14 @@
     "field": "Name",
     "regex": "DRE[A-Za-z0-9]*$",
     "when": "(OmniProcess.IsActive = true and Type = 'DataRaptor Extract Action')",
-    "message": "DataRaptor Extract must start with 'DRE+PascalCase'"
+    "message": "Data Mapper Extract must start with 'DRE+PascalCase'"
   },
   {
     "sObject": "OmniProcessElement",
     "field": "Name",
     "regex": "DRP[A-Za-z0-9]*$",
     "when": "(OmniProcess.IsActive = true and Type = 'DataRaptor Post Action')",
-    "message": "DataRaptor Post must start with 'DRP+PascalCase'"
+    "message": "Data Mapper Post must start with 'DRP+PascalCase'"
   },
   {
     "sObject": "OmniProcessElement",
@@ -95,6 +95,6 @@
     "nameField": "Name",
     "field": "Description",
     "regex": "^.{10,}$",
-    "message": "DataRaptors must have a description"
+    "message": "Data mappers must have a description"
   }
 ]
