@@ -225,8 +225,9 @@ Autolaunched Flow:
         "sObject": "ExternalString",
         "field": "Name",
         "tooling": true,
-        "regex": "^[a-z][A-Za-z0-9_]*$",
-        "message": "CustomLabel name must be camelCase"
+        "when": "NamespacePrefix='' and (NOT Name LIKE 'omni_%')",
+        "regex": "^[A-Z][A-Za-z0-9_]*$",
+        "message": "CustomLabel name must be PascalCase"
     },
    /* {
         "sObject": "FlexiPage",
