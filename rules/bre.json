@@ -1,0 +1,23 @@
+[
+  {
+    "sObject": "ExpressionSet",
+    "field": "ApiName",
+    "regex": "^[A-Z][A-Za-z0-9]*$",
+    "nameField": "Name",
+    "message": "ExpressionSet names must be pascal case"
+  },
+  {
+    "sObject": "ExpressionSet",
+    "field": "Description",
+    "regex": "^.{10,}$",
+    "nameField": "Name",
+    "message": "ExpressionSet must have a description"
+  },
+  {
+    "sObject": "CalculationMatrix",
+    "field": "Description",
+    "regex": "^.{10,}$",
+    "nameField": "Name",
+    "message": "CalculationMatrix must have a description"
+  }
+]

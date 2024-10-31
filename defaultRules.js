@@ -1,5 +1,6 @@
 const omnistudio = require("./rules/omnistudio.json")
 const permissions = require("./rules/permissions.json")
+const bre = require("./rules/bre.json")
 
 const JSDocExample = `
 Here is an example
@@ -221,6 +222,7 @@ Autolaunched Flow:
     },
     ...permissions,
     ...omnistudio,
+    ...bre,
     {
         "sObject": "ExternalString",
         "field": "Name",
@@ -229,14 +231,15 @@ Autolaunched Flow:
         "regex": "^[A-Z][A-Za-z0-9_]*$",
         "message": "CustomLabel name must be PascalCase"
     },
-   /* {
+    {
         "sObject": "FlexiPage",
         "nameField": "DeveloperName",
         "field": "Description",
+        "when": "NamespacePrefix=''",
         "tooling": true,
         "regex": "^.{10,}$",
         "message": "LightningRecordPage must have a description"
-    },*/
+    },
     {
         "sObject": "StaticResource",
         "nameField": "Name",
@@ -278,6 +281,14 @@ Autolaunched Flow:
         "when": "NamespacePrefix=''",
         regex: "^[A-Z][A-Za-z0-9]*$",
         "message": "Custom Button name must be pascal case"
+    },
+    {
+        "sObject": "Group",
+        "nameField": "DeveloperName",
+        "field": "Description",
+        "tooling": true,
+        "regex": "^.{10,}$",
+        "message": "Group must have a description"
     },
 ]
 

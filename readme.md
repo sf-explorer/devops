@@ -87,24 +87,34 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 [Flexcards must have a description](./Sample%20Rules/OmniUiCard/index.md)  
 
 ### OmniProcess
-[Omniscript Type should be camel case (for LWC compatibility)](./Sample%20Rules/OmniProcess/index.md)  
+[Omniscript Type should be pascal case](./Sample%20Rules/OmniProcess/index.md)  
 [Omniscript SubType must be PascalCase](./Sample%20Rules/OmniProcess/index.md)  
 [Omniscripts must have a description](./Sample%20Rules/OmniProcess/index.md)  
 [Omniscript must have less than 100 elements](./Sample%20Rules/OmniProcess/index.md)  
 
 ### OmniProcessElement
-[Remote action and DataRaptor Actions must have a description](./Sample%20Rules/OmniProcessElement/index.md)  
+[Remote action and Data mapper Actions must have a description](./Sample%20Rules/OmniProcessElement/index.md)  
 [Set Values and Set Errors must start with Set+PascalCase](./Sample%20Rules/OmniProcessElement/index.md)  
 [Remote Action must start with 'Invoke+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
-[DataRaptor Extract must start with 'DRE+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
-[DataRaptor Post must start with 'DRP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
+[Data Mapper Extract must start with 'DRE+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
+[Data Mapper Post must start with 'DRP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 [Integration Procedure must start with 'IP+PascalCase'](./Sample%20Rules/OmniProcessElement/index.md)  
 
 ### OmniDataTransform
-[DataRaptors must have a description](./Sample%20Rules/OmniDataTransform/index.md)  
+[Data mappers must have a description](./Sample%20Rules/OmniDataTransform/index.md)  
+
+### ExpressionSet
+[ExpressionSet names must be pascal case](./Sample%20Rules/ExpressionSet/index.md)  
+[ExpressionSet must have a description](./Sample%20Rules/ExpressionSet/index.md)  
+
+### CalculationMatrix
+[CalculationMatrix must have a description](./Sample%20Rules/CalculationMatrix/index.md)  
 
 ### ExternalString
 [CustomLabel name must be PascalCase](./Sample%20Rules/ExternalString/index.md)  
+
+### FlexiPage
+[LightningRecordPage must have a description](./Sample%20Rules/FlexiPage/index.md)  
 
 ### StaticResource
 [StaticResource must have a description](./Sample%20Rules/StaticResource/index.md)  
@@ -118,3 +128,6 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 ### WebLink
 [Custom Button must have a description](./Sample%20Rules/WebLink/index.md)  
 [Custom Button name must be pascal case](./Sample%20Rules/WebLink/index.md)  
+
+### Group
+[Group must have a description](./Sample%20Rules/Group/index.md)  
