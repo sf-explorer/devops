@@ -69,6 +69,9 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 [An LWC must have an author](./Sample%20Rules/LightningComponentResource/index.md)  
 [An LWC must have a description](./Sample%20Rules/LightningComponentResource/index.md)  
 
+### LightningComponentBundle
+[An LWC must have a description](./Sample%20Rules/LightningComponentBundle/index.md)  
+
 ### PermissionSet
 [Name is following project convention](./Sample%20Rules/PermissionSet/index.md)  
 [Description is required (more than 10 chars)](./Sample%20Rules/PermissionSet/index.md)  

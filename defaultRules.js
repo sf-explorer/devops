@@ -126,6 +126,7 @@ const rules = [
         sObject: "Flow",
         field: "MasterLabel",
         tooling: true,
+        when: "Status = 'Active'",
         message: `Flow Label must be Short Yet Meaningful`,
         additionalMessage: `
 **Autolaunched Flow:**
@@ -220,6 +221,14 @@ Autolaunched Flow:
         tooling: true,
         message: "An LWC must have a description",
     },
+    {
+        sObject: "LightningComponentBundle",
+        field: "Description",
+        when: "NamespacePrefix=''",
+        nameField: "DeveloperName",
+        tooling: true,
+        message: "An LWC must have a description",
+    },
     ...permissions,
     ...omnistudio,
     ...bre,
@@ -252,9 +261,19 @@ Autolaunched Flow:
         "sObject": "CustomApplication",
         "nameField": "DeveloperName",
         "field": "Description",
+        "when": "NamespacePrefix=''",
         "tooling": true,
         "regex": "^.{10,}$",
         "message": "CustomApplication must have a description"
+    },
+    {
+        "sObject": "ConnectedApplication",
+        "nameField": "DeveloperName",
+        "field": "Description",
+        "when": "NamespacePrefix=''",
+        "tooling": true,
+        "regex": "^.{10,}$",
+        "message": "ConnectedApplication must have a description"
     },
     {
         "sObject": "ValidationRule",
