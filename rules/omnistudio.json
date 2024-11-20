@@ -26,10 +26,10 @@
   {
     "sObject": "OmniProcess",
     "field": "SubType",
-    "regex": "^[A-Z][A-Za-z0-9]*$",
+    "regex": "^[a-z][A-Za-z0-9]*$",
     "when": "(IsActive = true)",
     "nameField": "Name",
-    "message": "Omniscript SubType must be PascalCase"
+    "message": "Omniscript SubType must be camelCase"
   },
   {
     "sObject": "OmniProcess",

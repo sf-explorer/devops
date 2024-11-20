@@ -5,9 +5,9 @@ Regex: `^[A-Z][A-Za-z0-9]*$`
 
 
 
-## Omniscript SubType must be PascalCase
+## Omniscript SubType must be camelCase
 Field: `SubType`   
-Regex: `^[A-Z][A-Za-z0-9]*$`    
+Regex: `^[a-z][A-Za-z0-9]*$`    
 
 
 
