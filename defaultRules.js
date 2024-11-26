@@ -309,6 +309,13 @@ Autolaunched Flow:
         "regex": "^.{10,}$",
         "message": "Group must have a description"
     },
+    {
+        "sObject": "Recommandation",
+        "nameField": "Name",
+        "field": "Description",
+        "regex": "^.{10,}$",
+        "message": "Recommandation must have a description"
+    },
 ]
 
 module.exports = rules

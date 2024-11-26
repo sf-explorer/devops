@@ -24,8 +24,17 @@
     "sObject": "CustomPermission",
     "nameField": "DeveloperName",
     "field": "Description",
+    "when": "(NamespacePrefix = '')",
     "regex": "^.{10,}$",
     "message": "CustomPermissions must have a description"
+  },
+  {
+    "sObject": "CustomPermission",
+    "nameField": "DeveloperName",
+    "field": "DeveloperName",
+    "regex": "^[A-Z][A-Za-z0-9]*$",
+    "when": "(NamespacePrefix = '')",
+    "message": "CustomPermissions Name must be PascalCase"
   },
   {
     "sObject": "FieldPermissions",
