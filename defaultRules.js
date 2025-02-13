@@ -50,6 +50,7 @@ const rules = [
         computedField: "QualifiedApiName",
         when: "PublisherId = '<local>'",
         regex: "^[A-Z][A-Za-z0-9]*(__c|__mdt|__ka|__kav)$",
+        severity: 2,
         message: "A custom object Name must be in english and PascalCase",
         goodExample: "InsurancePolicy",
         badExample: 'Insurance_Policy',
@@ -63,6 +64,25 @@ const rules = [
         goodExample: "More than 10 chars",
         tooling: true,
         when: "PublisherId = '<local>'",
+    },
+    {
+        "sObject": "CustomObject",
+        "field": "Description",
+        "regex": "^.{10,}$",
+        "nameField": "DeveloperName",
+        "message": "A custom object Description is required",
+        "tooling": true,
+        "when": "NamespacePrefix = null"
+    },
+    {
+        "sObject": "CustomObject",
+        "field": "DeveloperName",
+        severity: 2,
+        "regex": "^[A-Z][A-Za-z0-9]*$",
+        "nameField": "DeveloperName",
+        "message": "A custom object Name must be in english and PascalCase",
+        "tooling": true,
+        "when": "NamespacePrefix = null"
     },
     {
         sObject: "EntityDefinition",
@@ -97,6 +117,7 @@ const rules = [
     {
         sObject: "CustomField",
         field: "DeveloperName",
+        severity : 2,
         regex: "^[A-Z][A-Za-z0-9]*$",
         when: "ManageableState = 'unmanaged'",
         message: "A CustomField API Name must be in english and PascalCase",
@@ -146,6 +167,7 @@ Autolaunched Flow:
         sObject: "ApexClass",
         field: "Name",
         when: "NamespacePrefix = null",
+        severity : 2,
         regex: "^([A-Z][A-Za-z0-9_]*(Controller|CallIn|CallOut|Test|Helper|Mapping|Mock|TriggerHandler|Wrapper|Batchable|Queuable|Schedulable|EntityManager|ServiceManager|DataManager))|(TestDataFactory|Constant)$",
         message: "An Apex class name must be PascalCase and use a correct Suffix",
         goodExample: ApexGoodExample,
@@ -315,6 +337,13 @@ Autolaunched Flow:
         "field": "Description",
         "regex": "^.{10,}$",
         "message": "Recommandation must have a description"
+    },
+    {
+        "sObject": "RecordType",
+        "nameField": "Name",
+        "field": "Description",
+        "regex": "^.{10,}$",
+        "message": "RecordType must have a description"
     },
 ]
 

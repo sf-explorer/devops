@@ -9,6 +9,7 @@
     "sObject": "PermissionSet",
     "field": "Description",
     "nameField": "Name",
+    "severity" : 3,
     "regex": "^.{10,}$",
     "when": "IsOwnedByProfile = false and NamespacePrefix = null and Type != 'Group'",
     "message": "Description is required (more than 10 chars)"
@@ -41,8 +42,8 @@
     "nameField": "SobjectType",
     "regex": "$^",
     "field": "Field",
-    "message": "No field level security on Profiles (except System Administrator)",
+    "message": "No field level security on Profiles (except standard profiles)",
     "goodExample": "Use a permission set instead",
-    "when": "ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true) and Parent.Profile.Name != 'System Administrator'"
+    "when": "ParentId IN ( SELECT Id FROM PermissionSet WHERE IsOwnedByProfile = true and IsCustom=true)"
   }
 ]

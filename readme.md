@@ -49,6 +49,10 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 [Maximum one custom trigger per object](./Sample%20Rules/EntityDefinition/index.md)  
 [Maximum 15 record types per object](./Sample%20Rules/EntityDefinition/index.md)  
 
+### CustomObject
+[A custom object Description is required](./Sample%20Rules/CustomObject/index.md)  
+[A custom object Name must be in english and PascalCase](./Sample%20Rules/CustomObject/index.md)  
+
 ### CustomField
 [A CustomField API Name must be in english and PascalCase](./Sample%20Rules/CustomField/index.md)  
 [Custom Fields must have a Description (at least 10 chars)](./Sample%20Rules/CustomField/index.md)  
@@ -81,9 +85,10 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 
 ### CustomPermission
 [CustomPermissions must have a description](./Sample%20Rules/CustomPermission/index.md)  
+[CustomPermissions Name must be PascalCase](./Sample%20Rules/CustomPermission/index.md)  
 
 ### FieldPermissions
-[No field level security on Profiles (except System Administrator)](./Sample%20Rules/FieldPermissions/index.md)  
+[No field level security on Profiles (except standard profiles)](./Sample%20Rules/FieldPermissions/index.md)  
 
 ### OmniUiCard
 [Flexcards names must be pascal case](./Sample%20Rules/OmniUiCard/index.md)  
@@ -91,7 +96,7 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 
 ### OmniProcess
 [Omniscript Type should be pascal case](./Sample%20Rules/OmniProcess/index.md)  
-[Omniscript SubType must be PascalCase](./Sample%20Rules/OmniProcess/index.md)  
+[Omniscript SubType must be camelCase](./Sample%20Rules/OmniProcess/index.md)  
 [Omniscripts must have a description](./Sample%20Rules/OmniProcess/index.md)  
 [Omniscript must have less than 100 elements](./Sample%20Rules/OmniProcess/index.md)  
 
@@ -125,6 +130,9 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 ### CustomApplication
 [CustomApplication must have a description](./Sample%20Rules/CustomApplication/index.md)  
 
+### ConnectedApplication
+[ConnectedApplication must have a description](./Sample%20Rules/ConnectedApplication/index.md)  
+
 ### ValidationRule
 [ValidationRule must have a description](./Sample%20Rules/ValidationRule/index.md)  
 
@@ -134,3 +142,9 @@ You can ignore specific errors with a file named `.sfexplorerignore` (using rege
 
 ### Group
 [Group must have a description](./Sample%20Rules/Group/index.md)  
+
+### Recommandation
+[Recommandation must have a description](./Sample%20Rules/Recommandation/index.md)  
+
+### RecordType
+[RecordType must have a description](./Sample%20Rules/RecordType/index.md)  
