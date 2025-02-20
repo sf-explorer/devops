@@ -26,6 +26,10 @@ Options:
                         `target-org` configuration variable is already set.
   -u, --sfdx-url       sfdx auth url
   -r, --print-rules     Print rules
+  -p, --publish               publish static resource
+  -n, --resource-name         Static resource name
+  -i, --resource-description  Static resource description
+  -h, --help                  Show help                                [boolean]
   -h, --help            Show help                                      [boolean]
 ```
 

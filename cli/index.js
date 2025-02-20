@@ -19,6 +19,12 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     .describe('u', 'sfdx auth url')
     .alias('r', 'print-rules')
     .describe('r', 'Print rules')
+    .alias('p', 'publish')
+    .describe('p', 'publish static resource')
+    .alias('n', 'resource-name')
+    .describe('n', 'Static resource name')
+    .alias('i', 'resource-description')
+    .describe('i', 'Static resource description')
     .help('h')
     .alias('h', 'help')
     .parse();
@@ -35,7 +41,7 @@ require('dotenv').config();
 const LOGIN_URL = process.env.LOGINURL || 'https://test.salesforce.com'
 
 
-const version = '60.0'
+const version = '63.0'
 
 var conn = new jsforce.Connection({ loginUrl: LOGIN_URL, version })
 var ignoreList = []
@@ -136,7 +142,7 @@ async function computeRule(rule, suite, orgName) {
 async function scanOrg(url) {
     if (process.env.PASSWORD || process.env.SFEXP_PASSWORD) {
         runtime = 'jsforce'
-        await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
+        await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME || process.env.LOGIN, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
     } else {
         try {
             if (url) {
@@ -218,8 +224,6 @@ if (file.exists('./.sfexplorerignore')) {
         .filter(rule => rule.indexOf('@') !== 0)
         .filter(rule => rule.replaceAll(' ', '') !== '')
 
-
-
     ignoreAuthorList = ignore.split('\n')
         .filter(rule => rule.indexOf('@') === 0)
 }
@@ -238,7 +242,36 @@ if (argv.e) {
     }
 }
 
+function bytesToBase64(bytes) {
+    const binString = Array.from(bytes, (byte) =>
+        String.fromCodePoint(byte),
+    ).join("");
+    return btoa(binString);
+}
 
+function encodeToBase64(data) {
+    return bytesToBase64(new TextEncoder().encode(data))
+}
+
+async function publishFile(path) {
+    if (!file.exists(argv.p)) {
+        console.error('Not found')
+        exit(1)
+    }
+
+    await conn.login(process.env.SFEXP_LOGIN || process.env.USERNAME || process.env.LOGIN, process.env.SFEXP_PASSWORD || process.env.PASSWORD)
+
+    const content = file.read.text(argv.p)
+    const extension = argv.p.split('.').pop()
+    const metadata = {
+        "fullName": argv.n || "SFExplorer_Board_Demo",
+        "description": 'published via sf explorer',
+        "cacheControl": "Public",
+        "contentType": "application/" + extension,
+        "content": encodeToBase64(content)
+    }
+    await conn.metadata.upsert('StaticResource', metadata)
+}
 
 if (argv.u) {
     if (typeof argv.u === 'string') {
@@ -250,6 +283,9 @@ if (argv.u) {
 
 if (argv.r) {
     console.log(rules)
+} if (argv.p) {
+    //console.log(argv.p)
+    publishFile(argv.p)
 } else {
     main()
 }
