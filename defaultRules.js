@@ -58,7 +58,7 @@ const rules = [
     {
         sObject: "EntityDefinition",
         field: "Description",
-        regex: "^.{10,}$",
+        regex: "^[\\s\\S]{10,}$",
         nameField: "QualifiedApiName",
         message: "A custom object Description is required",
         goodExample: "More than 10 chars",
@@ -68,7 +68,7 @@ const rules = [
     {
         "sObject": "CustomObject",
         "field": "Description",
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "nameField": "DeveloperName",
         "message": "A custom object Description is required",
         "tooling": true,
@@ -130,7 +130,7 @@ const rules = [
         nameField: "DeveloperName",
         when: "ManageableState = 'unmanaged'",
         field: "Description",
-        regex: "^.{10,}$",
+        regex: "^[\\s\\S]{10,}$",
         tooling: true,
         message: "Custom Fields must have a Description (at least 10 chars)"
     },
@@ -139,7 +139,7 @@ const rules = [
         field: "Description",
         nameField: "MasterLabel",
         when: "Status = 'Active'",
-        regex: "^.{10,}$",
+        regex: "^[\\s\\S]{10,}$",
         tooling: true,
         message: "Flow Description is required (at least 10 chars)"
     },
@@ -268,7 +268,7 @@ Autolaunched Flow:
         "field": "Description",
         "when": "NamespacePrefix=''",
         "tooling": true,
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "LightningRecordPage must have a description"
     },
     {
@@ -276,7 +276,7 @@ Autolaunched Flow:
         "nameField": "Name",
         "field": "Description",
         "when": "NamespacePrefix=''",
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "StaticResource must have a description"
     },
     {
@@ -285,7 +285,7 @@ Autolaunched Flow:
         "field": "Description",
         "when": "NamespacePrefix=''",
         "tooling": true,
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "CustomApplication must have a description"
     },
     {
@@ -294,7 +294,7 @@ Autolaunched Flow:
         "field": "Description",
         "when": "NamespacePrefix=''",
         "tooling": true,
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "ConnectedApplication must have a description"
     },
     {
@@ -303,7 +303,7 @@ Autolaunched Flow:
         "field": "Description",
         "tooling": true,
         "when": "NamespacePrefix='' and Active=true",
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "ValidationRule must have a description"
     },
     {
@@ -312,7 +312,7 @@ Autolaunched Flow:
         "field": "Description",
         "tooling": true,
         "when": "NamespacePrefix=''",
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "Custom Button must have a description"
     },
     {
@@ -328,21 +328,21 @@ Autolaunched Flow:
         "nameField": "DeveloperName",
         "field": "Description",
         "tooling": true,
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "Group must have a description"
     },
     {
         "sObject": "Recommandation",
         "nameField": "Name",
         "field": "Description",
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "Recommandation must have a description"
     },
     {
         "sObject": "RecordType",
         "nameField": "Name",
         "field": "Description",
-        "regex": "^.{10,}$",
+        "regex": "^[\\s\\S]{10,}$",
         "message": "RecordType must have a description"
     },
 ]

@@ -9,14 +9,14 @@
   {
     "sObject": "ExpressionSet",
     "field": "Description",
-    "regex": "^.{10,}$",
+    "regex": "^[\\s\\S]{10,}$",
     "nameField": "Name",
     "message": "ExpressionSet must have a description"
   },
   {
     "sObject": "CalculationMatrix",
     "field": "Description",
-    "regex": "^.{10,}$",
+    "regex": "^[\\s\\S]{10,}$",
     "nameField": "Name",
     "message": "CalculationMatrix must have a description"
   }

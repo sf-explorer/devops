@@ -10,7 +10,7 @@
     "field": "Description",
     "nameField": "Name",
     "severity" : 3,
-    "regex": "^.{10,}$",
+    "regex": "^[\\s\\S]{10,}$",
     "when": "IsOwnedByProfile = false and NamespacePrefix = null and Type != 'Group'",
     "message": "Description is required (more than 10 chars)"
   },
@@ -18,7 +18,7 @@
     "sObject": "PermissionSetGroup",
     "nameField": "DeveloperName",
     "field": "Description",
-    "regex": "^.{10,}$",
+    "regex": "^[\\s\\S]{10,}$",
     "message": "PermissionSetGroup must have a description (more than 10 chars)"
   },
   {
@@ -26,7 +26,7 @@
     "nameField": "DeveloperName",
     "field": "Description",
     "when": "(NamespacePrefix = '')",
-    "regex": "^.{10,}$",
+    "regex": "^[\\s\\S]{10,}$",
     "message": "CustomPermissions must have a description"
   },
   {
