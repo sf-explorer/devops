@@ -10,7 +10,7 @@
 
 Run the command:  
 ```cmd
-npx @sf-explorer/devops.cli -o myOrg -d 2024-03-01 --exclude '@Sys admin' --exclude 'CustomField.*_del'
+npx @sf-explorer/devops.cli -o myOrg -d 2026-04-01 --exclude '@Sys admin' --exclude 'CustomField.*_del'
 ```
 The command will generate an output file name `testReport.xml` similar to the one you can find [here](./cli/test-report.xml).
 
@@ -19,7 +19,7 @@ __Options__
 Options:
       --version         Show version number                            [boolean]
   -d, --from-date       From date execution, in format YYYY-MM-DD
-                                                         [default: "2024-04-01"]
+                                                         [default: "2026-04-01"]
   -e, --exclude         Exclude specified author, in format @name, multiple
                         values are supported
   -o, --target-org      Username or alias of the target org. Not required if the
